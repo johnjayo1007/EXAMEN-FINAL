@@ -1,0 +1,6 @@
+C:\Users\PC\OneDrive\Documentos\siglo 2\FUNDA\SISTEMA VENTA EXFINAL\BiblioRegistrar\bin\Debug\BiblioRegistrar.dll
+C:\Users\PC\OneDrive\Documentos\siglo 2\FUNDA\SISTEMA VENTA EXFINAL\BiblioRegistrar\bin\Debug\BiblioRegistrar.pdb
+C:\Users\PC\OneDrive\Documentos\siglo 2\FUNDA\SISTEMA VENTA EXFINAL\BiblioRegistrar\obj\Debug\BiblioRegistrar.csproj.AssemblyReference.cache
+C:\Users\PC\OneDrive\Documentos\siglo 2\FUNDA\SISTEMA VENTA EXFINAL\BiblioRegistrar\obj\Debug\BiblioRegistrar.csproj.CoreCompileInputs.cache
+C:\Users\PC\OneDrive\Documentos\siglo 2\FUNDA\SISTEMA VENTA EXFINAL\BiblioRegistrar\obj\Debug\BiblioRegistrar.dll
+C:\Users\PC\OneDrive\Documentos\siglo 2\FUNDA\SISTEMA VENTA EXFINAL\BiblioRegistrar\obj\Debug\BiblioRegistrar.pdb
