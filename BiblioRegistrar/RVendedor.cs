@@ -1,8 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace BiblioRegistrar
 {
@@ -14,97 +12,128 @@ namespace BiblioRegistrar
             public string Nombre { get; set; }
             public string Apellidos { get; set; }
             public int Sueldo { get; set; }
-            public decimal Telefono { get; set; }
+            public int Telefono { get; set; }
         }
 
         public static List<Vendedores> listaVendedores = new List<Vendedores>();
 
         public static void RegistrarVendedor()
         {
-            Console.Clear();
-            Console.WriteLine("=== REGISTRO DE VENDEDORES ===\n");
+            // Limpiar zona de trabajo
+            for (int y = 6; y <= 28; y++)
+            {
+                Console.SetCursorPosition(1, y);
+                Console.Write(new string(' ', 108));
+            }
 
-            string codigo;
-            string nombre;
-            string apellido;
-            int sueldo;
-            int telefono;
+            Console.ForegroundColor = ConsoleColor.Cyan;
+            Console.SetCursorPosition(4, 6);
+            Console.Write("╔═══════════════════════════════════════════════════════╗");
+            Console.SetCursorPosition(4, 7);
+            Console.Write("║                REGISTRO DE VENDEDORES               ║");
+            Console.SetCursorPosition(4, 8);
+            Console.Write("╚═══════════════════════════════════════════════════════╝");
+            Console.ResetColor();
+
+            int linea = 10;
+            string codigo, nombre, apellidos;
+            int sueldo, telefono;
 
             while (true)
             {
+                Console.SetCursorPosition(4, linea);
                 Console.Write("Código: ");
+                Console.SetCursorPosition(25, linea);
                 codigo = Console.ReadLine().Trim();
 
                 if (codigo == "")
                 {
-                    Console.WriteLine("ERROR: El código no puede estar vacío.\n");
+                    MostrarError("El código no puede estar vacío.", linea);
                     continue;
                 }
-
-                bool existe = listaVendedores.Any(p => p.Codigo == codigo);
-                if (existe)
-                    Console.WriteLine("ERROR: El código ya existe.\n");
-                else
-                    break;
+                if (listaVendedores.Any(v => v.Codigo == codigo))
+                {
+                    MostrarError("El código ya existe.", linea);
+                    continue;
+                }
+                LimpiarError(linea);
+                break;
             }
 
-            Console.Write("Nombre: ");
-            nombre = Console.ReadLine().Trim();
+            linea++;
             while (true)
             {
+                Console.SetCursorPosition(4, linea);
+                Console.Write("Nombre: ");
+                Console.SetCursorPosition(25, linea);
+                nombre = Console.ReadLine().Trim();
+
                 if (nombre == "")
                 {
-                    Console.WriteLine("ERROR: El nombre no puede estar vacío.\n");
+                    MostrarError("El nombre no puede estar vacío.", linea);
                     continue;
                 }
-                else
-                    break;
+                LimpiarError(linea);
+                break;
             }
 
+            linea++;
             while (true)
             {
+                Console.SetCursorPosition(4, linea);
                 Console.Write("Apellidos: ");
-                apellido = Console.ReadLine().Trim();
+                Console.SetCursorPosition(25, linea);
+                apellidos = Console.ReadLine().Trim();
 
-                if (apellido == "")
+                if (apellidos == "")
                 {
-                    Console.WriteLine("ERROR. El apellido no puede estar vacio.\n");
+                    MostrarError("El apellido no puede estar vacío.", linea);
                     continue;
                 }
-                else
-                    break;
+                LimpiarError(linea);
+                break;
             }
 
+            linea++;
             while (true)
             {
+                Console.SetCursorPosition(4, linea);
                 Console.Write("Sueldo: ");
-                if (int.TryParse(Console.ReadLine(), out sueldo) && sueldo >= 0)
-                    break;
-
-                Console.WriteLine("ERROR: Ingresa un número válido.\n");
+                Console.SetCursorPosition(25, linea);
+                string inputSueldo = Console.ReadLine().Trim();
+                if (!int.TryParse(inputSueldo, out sueldo) || sueldo < 0)
+                {
+                    MostrarError("Ingresa un número válido para sueldo.", linea);
+                    continue;
+                }
+                LimpiarError(linea);
+                break;
             }
 
+            linea++;
             while (true)
             {
-                Console.Write("Teléfono: ");
-                string cel = Console.ReadLine().Trim();
+                Console.SetCursorPosition(4, linea);
+                Console.Write("Teléfono (9 dígitos): ");
+                Console.SetCursorPosition(25, linea);
+                string inputTel = Console.ReadLine().Trim();
 
-                if (cel == "")
+                if (inputTel == "")
                 {
-                    Console.WriteLine("ERROR: El teléfono no puede estar en blanco.");
+                    MostrarError("El teléfono no puede estar vacío.", linea);
                     continue;
                 }
-
-                if (!int.TryParse(cel, out telefono))
+                if (!int.TryParse(inputTel, out telefono))
                 {
-                    Console.WriteLine("ERROR: Debe ingresar solo números.");
+                    MostrarError("Debe ingresar solo números.", linea);
                     continue;
                 }
-                if (cel.Length != 9)
+                if (inputTel.Length != 9)
                 {
-                    Console.WriteLine("ERROR: Debe tener 9 dígitos.\n");
+                    MostrarError("El teléfono debe tener 9 dígitos.", linea);
                     continue;
                 }
+                LimpiarError(linea);
                 break;
             }
 
@@ -112,15 +141,45 @@ namespace BiblioRegistrar
             {
                 Codigo = codigo,
                 Nombre = nombre,
-                Apellidos = apellido,
+                Apellidos = apellidos,
                 Sueldo = sueldo,
                 Telefono = telefono
             });
 
-            Console.WriteLine("\nProducto registrado exitosamente.");
-            Console.WriteLine("Presiona cualquier tecla para continuar...");
-            Console.ReadKey();
-            Console.Clear();
+            linea += 2;
+            Console.ForegroundColor = ConsoleColor.Green;
+            Console.SetCursorPosition(4, linea);
+            Console.Write("Vendedor registrado correctamente.");
+            Console.ResetColor();
+
+            linea++;
+            Console.SetCursorPosition(4, linea);
+            Console.Write("Presiona cualquier tecla para continuar...");
+            Console.ReadKey(true);
+
+            for (int y = 6; y <= 28; y++)
+            {
+                Console.SetCursorPosition(1, y);
+                Console.Write(new string(' ', 108));
+            }
+        }
+
+        private static void MostrarError(string mensaje, int lineaInput)
+        {
+            int lineaError = lineaInput + 1;
+            Console.SetCursorPosition(4, lineaError);
+            Console.ForegroundColor = ConsoleColor.Red;
+            Console.Write(new string(' ', 80)); // limpiar línea de error
+            Console.SetCursorPosition(4, lineaError);
+            Console.Write(mensaje);
+            Console.ResetColor();
+        }
+
+        private static void LimpiarError(int lineaInput)
+        {
+            int lineaError = lineaInput + 1;
+            Console.SetCursorPosition(4, lineaError);
+            Console.Write(new string(' ', 80));
         }
     }
 }

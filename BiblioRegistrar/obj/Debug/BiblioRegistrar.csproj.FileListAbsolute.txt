@@ -4,3 +4,8 @@ C:\Users\PC\OneDrive\Documentos\siglo 2\FUNDA\SISTEMA VENTA EXFINAL\BiblioRegist
 C:\Users\PC\OneDrive\Documentos\siglo 2\FUNDA\SISTEMA VENTA EXFINAL\BiblioRegistrar\obj\Debug\BiblioRegistrar.csproj.CoreCompileInputs.cache
 C:\Users\PC\OneDrive\Documentos\siglo 2\FUNDA\SISTEMA VENTA EXFINAL\BiblioRegistrar\obj\Debug\BiblioRegistrar.dll
 C:\Users\PC\OneDrive\Documentos\siglo 2\FUNDA\SISTEMA VENTA EXFINAL\BiblioRegistrar\obj\Debug\BiblioRegistrar.pdb
+C:\Users\PC\OneDrive\Documentos\siglo 2\FUNDA\SISTEMA VENTA EXFINAL\BiblioRegistrar\bin\Debug\BilioSubMenus.dll
+C:\Users\PC\OneDrive\Documentos\siglo 2\FUNDA\SISTEMA VENTA EXFINAL\BiblioRegistrar\bin\Debug\BiblioVentas.dll
+C:\Users\PC\OneDrive\Documentos\siglo 2\FUNDA\SISTEMA VENTA EXFINAL\BiblioRegistrar\bin\Debug\BilioSubMenus.pdb
+C:\Users\PC\OneDrive\Documentos\siglo 2\FUNDA\SISTEMA VENTA EXFINAL\BiblioRegistrar\bin\Debug\BiblioVentas.pdb
+C:\Users\PC\OneDrive\Documentos\siglo 2\FUNDA\SISTEMA VENTA EXFINAL\BiblioRegistrar\obj\Debug\BiblioRe.2AD106C0.Up2Date

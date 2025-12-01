@@ -10,63 +10,28 @@ namespace BiblioRegistrar
     {
         public static int Registra()
         {
-            string[] opciones = { "PRODUCTOS", "CLIENTES", "VENDEDORES", "PROVEDORES" };
+            string[] opciones = { "PRODUCTOS", "CLIENTES", "VENDEDORES", "PROVEEDORES" };
 
             int opcion = 0;
             ConsoleKey tecla;
-            Console.Clear();
+
             Console.CursorVisible = false;
-
-            for (int x = 8; x <= 60; x++)
-            {
-                Console.SetCursorPosition(x, 1);
-                Console.BackgroundColor = ConsoleColor.Yellow;
-                Console.Write(" ");
-            }
-
-            for (int x = 8; x <= 60; x++)
-            {
-                Console.SetCursorPosition(x, 18);
-                Console.BackgroundColor = ConsoleColor.Yellow;
-                Console.Write(" ");
-            }
-
-            for (int y = 1; y <= 18; y++)
-            {
-                Console.SetCursorPosition(8, y);
-                Console.BackgroundColor = ConsoleColor.Yellow;
-                Console.Write(" ");
-            }
-
-            for (int y = 1; y <= 18; y++)
-            {
-                Console.SetCursorPosition(60, y);
-                Console.BackgroundColor = ConsoleColor.Yellow;
-                Console.Write(" ");
-            }
-
-            Console.ResetColor();
-
-            Console.ForegroundColor = ConsoleColor.Yellow;
-            Console.SetCursorPosition(15, 3);
-            Console.WriteLine("=== SUB - MENÚ DE REGISTRO ===");
-            Console.ResetColor();
 
             while (true)
             {
                 for (int i = 0; i < opciones.Length; i++)
                 {
-                    Console.SetCursorPosition(15, 6 + (i * 2));
+                    Console.SetCursorPosition(1, 5 + i);
 
                     if (i == opcion)
                     {
-                        Console.BackgroundColor = ConsoleColor.White;
-                        Console.ForegroundColor = ConsoleColor.Black;
+                        Console.BackgroundColor = ConsoleColor.Black;
+                        Console.ForegroundColor = ConsoleColor.White;
                     }
                     else
                     {
-                        Console.BackgroundColor = ConsoleColor.Black;
-                        Console.ForegroundColor = ConsoleColor.White;
+                        Console.BackgroundColor = ConsoleColor.White;
+                        Console.ForegroundColor = ConsoleColor.Black;
                     }
 
                     Console.Write($"  {opciones[i]}  ");
@@ -87,12 +52,24 @@ namespace BiblioRegistrar
                 }
                 else if (tecla == ConsoleKey.Enter)
                 {
-                    Console.Clear();
+                    for (int i = 0; i < opciones.Length; i++)
+                    {
+                        Console.SetCursorPosition(1, 5 + i);
+                        Console.BackgroundColor = ConsoleColor.Yellow;
+                        Console.Write("                      ");
+                        Console.ResetColor();
+                    }
                     return opcion;
                 }
                 else if (tecla == ConsoleKey.Escape)
                 {
-                    Console.Clear();
+                    for (int i = 0; i < opciones.Length; i++)
+                    {
+                        Console.SetCursorPosition(1, 5 + i);
+                        Console.BackgroundColor = ConsoleColor.Yellow;
+                        Console.Write("                      ");
+                        Console.ResetColor();
+                    }
                     return -1;
                 }
             }

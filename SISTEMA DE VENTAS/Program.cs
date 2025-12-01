@@ -1,5 +1,6 @@
 ﻿using System;
 using BilioSubMenus;
+using BiblioRegistrar;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -11,6 +12,8 @@ namespace SISTEMA_DE_VENTAS
     {
         public static void Main(string[] args)
         {
+            ClaseInterfaz.Interfaz();
+
             while (true)
             {
                 int op = ClaseInterfaz.Menu();
@@ -25,21 +28,18 @@ namespace SISTEMA_DE_VENTAS
                         SubMenus.SubMenuVenta();
                         break;
                     case 2:
-                        Console.Clear();
                         Console.WriteLine("En proceso");
                         Console.ReadKey(true);
                         Console.Clear();
                         break;
 
                     case 3:
-                        Console.Clear();
                         Console.WriteLine("En proceso");
                         Console.ReadKey(true);
-                        Console.Clear();
+                        Console.Clear();  
                         break;
 
                     case 4:
-                        Console.Clear();
                         Console.WriteLine("En Proceso");
                         Console.ReadKey(true);
                         Console.Clear();

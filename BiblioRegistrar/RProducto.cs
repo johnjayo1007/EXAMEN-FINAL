@@ -1,8 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace BiblioRegistrar
 {
@@ -21,69 +19,121 @@ namespace BiblioRegistrar
 
         public static void RegistrarProducto()
         {
-            Console.Clear();
-            Console.WriteLine("=== REGISTRO DE PRODUCTOS ===\n");
+            for (int y = 6; y <= 28; y++)
+            {
+                Console.SetCursorPosition(1, y);
+                Console.Write(new string(' ', 108));
+            }
 
-            string codigo;
-            string nombre;
+            Console.ForegroundColor = ConsoleColor.Cyan;
+            Console.SetCursorPosition(4, 6);
+            Console.Write("╔═══════════════════════════════════════════════════════╗");
+            Console.SetCursorPosition(4, 7);
+            Console.Write("║               REGISTRO DE PRODUCTOS                 ║");
+            Console.SetCursorPosition(4, 8);
+            Console.Write("╚═══════════════════════════════════════════════════════╝");
+            Console.ResetColor();
+
+            int linea = 10;
+            string codigo, nombre, categoria;
+            int stock;
+            decimal precioU;
 
             while (true)
             {
+                Console.SetCursorPosition(4, linea);
                 Console.Write("Código: ");
+                Console.SetCursorPosition(25, linea);
                 codigo = Console.ReadLine().Trim();
 
                 if (codigo == "")
                 {
-                    Console.WriteLine("ERROR: El código no puede estar vacío.\n");
+                    MostrarError("El código no puede estar vacío.", linea);
+                    continue;
+                }
+                if (listaProductos.Any(p => p.Codigo == codigo))
+                {
+                    MostrarError("El código ya existe.", linea);
                     continue;
                 }
 
-                bool existe = listaProductos.Any(p => p.Codigo == codigo);
-                if (existe)
-                    Console.WriteLine("ERROR: El código ya existe.\n");
-                else
-                    break;
+                LimpiarError(linea);
+                break;
             }
 
+            linea++;
             while (true)
             {
+                Console.SetCursorPosition(4, linea);
                 Console.Write("Nombre: ");
+                Console.SetCursorPosition(25, linea);
                 nombre = Console.ReadLine().Trim();
 
                 if (nombre == "")
                 {
-                    Console.WriteLine("ERROR: El nombre no puede estar vacío.\n");
+                    MostrarError("El nombre no puede estar vacío.", linea);
+                    continue;
+                }
+                if (listaProductos.Any(p => p.Nombre == nombre))
+                {
+                    MostrarError("El nombre ya existe.", linea);
                     continue;
                 }
 
-                bool existe = listaProductos.Any(p => p.Nombre == nombre);
-                if (existe)
-                    Console.WriteLine("ERROR: El nombre ya existe.\n");
-                else
-                    break;
+                LimpiarError(linea);
+                break;
             }
 
-            Console.Write("Categoría: ");
-            string categoria = Console.ReadLine().Trim();
-
-            int stock;
+            linea++;
             while (true)
             {
+                Console.SetCursorPosition(4, linea);
+                Console.Write("Categoría: ");
+                Console.SetCursorPosition(25, linea);
+                categoria = Console.ReadLine().Trim();
+
+                if (categoria == "")
+                {
+                    MostrarError("La categoria no puede estar vacío.", linea);
+                    continue;
+                }
+
+                LimpiarError(linea);
+                break;
+            }
+
+            linea++;
+            while (true)
+            {
+                Console.SetCursorPosition(4, linea);
                 Console.Write("Stock: ");
-                if (int.TryParse(Console.ReadLine(), out stock) && stock >= 0)
-                    break;
+                Console.SetCursorPosition(25, linea);
+                string stockInput = Console.ReadLine().Trim();
+                if (!int.TryParse(stockInput, out stock) || stock < 0)
+                {
+                    MostrarError("Ingresa un número válido para stock.", linea);
+                    continue;
+                }
 
-                Console.WriteLine("ERROR: Ingresa un número válido.\n");
+                LimpiarError(linea);
+                break;
             }
 
-            decimal precioU;
+            linea++;
             while (true)
             {
+                Console.SetCursorPosition(4, linea);
                 Console.Write("Precio Unitario: ");
-                if (decimal.TryParse(Console.ReadLine(), out precioU) && precioU >= 0)
-                    break;
+                Console.SetCursorPosition(25, linea);
+                string precioInput = Console.ReadLine().Trim();
+                if (!decimal.TryParse(precioInput, out precioU) || precioU < 0)
+                {
+                    MostrarError("Ingresa un precio válido.", linea);
+                    continue;
+                }
 
-                Console.WriteLine("ERROR: Ingresa un precio válido.\n");
+                LimpiarError(linea);
+                break;
             }
 
             listaProductos.Add(new Producto
@@ -95,11 +145,40 @@ namespace BiblioRegistrar
                 Precio = precioU
             });
 
-            Console.WriteLine("\nProducto registrado exitosamente.");
-            Console.WriteLine("Presiona cualquier tecla para continuar...");
-            Console.ReadKey();
-            Console.Clear();
+            linea += 2;
+            Console.ForegroundColor = ConsoleColor.Green;
+            Console.SetCursorPosition(4, linea);
+            Console.Write("Producto registrado correctamente.");
+            Console.ResetColor();
 
+            linea++;
+            Console.SetCursorPosition(4, linea);
+            Console.Write("Presiona cualquier tecla para continuar...");
+            Console.ReadKey(true);
+
+            for (int y = 6; y <= 28; y++)
+            {
+                Console.SetCursorPosition(1, y);
+                Console.Write(new string(' ', 108));
+            }
+        }
+
+        private static void MostrarError(string mensaje, int lineaInput)
+        {
+            int lineaError = lineaInput + 1;
+            Console.SetCursorPosition(4, lineaError);
+            Console.Write(new string(' ', 80)); // limpiar línea
+            Console.SetCursorPosition(4, lineaError);
+            Console.ForegroundColor = ConsoleColor.Red;
+            Console.Write(mensaje);
+            Console.ResetColor();
+        }
+
+        private static void LimpiarError(int lineaInput)
+        {
+            int lineaError = lineaInput + 1;
+            Console.SetCursorPosition(4, lineaError);
+            Console.Write(new string(' ', 80));
         }
     }
 }

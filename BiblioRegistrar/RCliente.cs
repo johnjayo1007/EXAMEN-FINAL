@@ -1,8 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace BiblioRegistrar
 {
@@ -16,125 +14,154 @@ namespace BiblioRegistrar
             public int Telefono { get; set; }
             public string Email { get; set; }
             public string Direccion { get; set; }
-
         }
 
         public static List<Cliente> listaClientes = new List<Cliente>();
 
         public static void RegistrarCliente()
         {
-            Console.Clear();
-            Console.WriteLine("=== REGISTRO DE CLIENTES ===\n");
+            for (int y = 6; y <= 28; y++)
+            {
+                Console.SetCursorPosition(1, y);
+                Console.Write(new string(' ', 108));
+            }
 
-            string dni;
-            string nombre;
+            Console.ForegroundColor = ConsoleColor.Cyan;
+            Console.SetCursorPosition(4, 6);
+            Console.Write("╔═══════════════════════════════════════════════════════╗");
+            Console.SetCursorPosition(4, 7);
+            Console.Write("║                REGISTRO DE CLIENTES                   ║");
+            Console.SetCursorPosition(4, 8);
+            Console.Write("╚═══════════════════════════════════════════════════════╝");
+            Console.ResetColor();
+
+            int linea = 10;
+            string dni, nombre, apellido, email, direccion;
             int telefono;
-            string email;
-            string direccion;
-            string apellido;
 
             while (true)
             {
-                Console.Write("Ingresa DNI (8 dígitos): ");
+                Console.SetCursorPosition(4, linea);
+                Console.Write("DNI (8 dígitos): ");
+                Console.SetCursorPosition(25, linea);
                 dni = Console.ReadLine().Trim();
 
                 if (dni == "")
                 {
-                    Console.WriteLine("ERROR. DNI no puede estar vacío.\n");
+                    MostrarError("El DNI no puede estar vacío.", linea);
                     continue;
                 }
-
                 if (!int.TryParse(dni, out _))
                 {
-                    Console.WriteLine("ERROR: Debe ser un número.\n");
+                    MostrarError("El DNI debe ser numérico.", linea);
                     continue;
                 }
-
                 if (dni.Length != 8)
                 {
-                    Console.WriteLine("ERROR: Debe tener 8 dígitos.\n");
+                    MostrarError("Debe tener 8 dígitos.", linea);
                     continue;
                 }
-
-                bool existe = listaClientes.Any(c => c.DNI == dni);
-                if (existe)
+                if (listaClientes.Any(c => c.DNI == dni))
                 {
-                    Console.WriteLine("ERROR: El DNI ya existe.\n");
+                    MostrarError("El DNI ya existe.", linea);
                     continue;
                 }
-
+                LimpiarError(linea);
                 break;
             }
 
+            linea++;
             while (true)
             {
-                Console.Write("Ingresa su Nombre: ");
+                Console.SetCursorPosition(4, linea);
+                Console.Write("Nombre: ");
+                Console.SetCursorPosition(25, linea);
                 nombre = Console.ReadLine().Trim();
+
                 if (nombre == "")
                 {
-                    Console.WriteLine("ERROR: El nombre no puede estar vacío.\n");
+                    MostrarError("El nombre no puede estar vacío.", linea);
                     continue;
                 }
+                LimpiarError(linea);
                 break;
             }
 
+            linea++;
             while (true)
             {
-                Console.Write("Ingresa sus Apellidos: ");
+                Console.SetCursorPosition(4, linea);
+                Console.Write("Apellidos: ");
+                Console.SetCursorPosition(25, linea);
                 apellido = Console.ReadLine().Trim();
+
                 if (apellido == "")
                 {
-                    Console.WriteLine("ERROR: El apellido no puede estar vacio.\n");
+                    MostrarError("El apellido es obligatorio.", linea);
                     continue;
                 }
+                LimpiarError(linea);
                 break;
             }
 
+            linea++;
             while (true)
             {
-                Console.Write("Ingrese su teléfono: ");
+                Console.SetCursorPosition(4, linea);
+                Console.Write("Teléfono (9 dígitos): ");
+                Console.SetCursorPosition(28, linea);
                 string cel = Console.ReadLine().Trim();
 
                 if (cel == "")
                 {
-                    Console.WriteLine("ERROR: El teléfono no puede estar en blanco.");
+                    MostrarError("El teléfono no puede estar vacío.", linea);
                     continue;
                 }
-
                 if (!int.TryParse(cel, out telefono))
                 {
-                    Console.WriteLine("ERROR: Debe ingresar solo números.");
+                    MostrarError("Debe ingresar solo números.", linea);
                     continue;
                 }
                 if (cel.Length != 9)
                 {
-                    Console.WriteLine("ERROR: Debe tener 9 dígitos.\n");
+                    MostrarError("Debe tener 9 dígitos.", linea);
                     continue;
                 }
+                LimpiarError(linea);
                 break;
             }
 
+            linea++;
             while (true)
             {
-                Console.WriteLine("Ingrese su Correo(Email): ");
-                email = Console.ReadLine();
+                Console.SetCursorPosition(4, linea);
+                Console.Write("Correo (Email): ");
+                Console.SetCursorPosition(25, linea);
+                email = Console.ReadLine().Trim();
+
                 if (email == "")
                 {
-                    Console.WriteLine("ERROR: EL email no puede estar vacio.\n");
+                    MostrarError("El email no puede estar vacío.", linea);
                     continue;
                 }
+                LimpiarError(linea);
                 break;
             }
 
+            linea++;
             while (true)
             {
-                Console.WriteLine("Ingrese su Direccion: ");
+                Console.SetCursorPosition(4, linea);
+                Console.Write("Dirección: ");
+                Console.SetCursorPosition(25, linea);
                 direccion = Console.ReadLine().Trim();
+
                 if (direccion == "")
                 {
-                    Console.WriteLine("ERROR: La direccion no puede estar en blanco.\n");
+                    MostrarError("La dirección no puede estar vacía.", linea);
                     continue;
                 }
+                LimpiarError(linea);
                 break;
             }
 
@@ -146,13 +173,44 @@ namespace BiblioRegistrar
                 Telefono = telefono,
                 Email = email,
                 Direccion = direccion
-
             });
 
-            Console.WriteLine("\nCliente registrado correctamente.");
-            Console.WriteLine("Presiona cualquier tecla para continuar...");
-            Console.ReadKey();
-            Console.Clear();
+            linea += 2;
+            Console.ForegroundColor = ConsoleColor.Green;
+            Console.SetCursorPosition(4, linea);
+            Console.Write("Cliente registrado correctamente.");
+            Console.ResetColor();
+
+            linea++;
+            Console.SetCursorPosition(4, linea);
+            Console.Write("Presiona cualquier tecla para continuar...");
+            Console.ReadKey(true);
+
+            for (int y = 6; y <= 28; y++)
+            {
+                Console.SetCursorPosition(1, y);
+                Console.Write(new string(' ', 108));
+            }
+        }
+
+        private static void MostrarError(string mensaje, int lineaInput)
+        {
+            int lineaError = lineaInput + 1;
+            Console.SetCursorPosition(4, lineaError);
+
+            Console.Write(new string(' ', 80));
+
+            Console.SetCursorPosition(4, lineaError);
+            Console.ForegroundColor = ConsoleColor.Red;
+            Console.Write(mensaje);
+            Console.ResetColor();
+        }
+
+        private static void LimpiarError(int lineaInput)
+        {
+            int lineaError = lineaInput + 1;
+            Console.SetCursorPosition(4, lineaError);
+            Console.Write(new string(' ', 80));
         }
     }
 }

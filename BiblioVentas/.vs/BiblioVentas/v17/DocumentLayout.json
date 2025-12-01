@@ -3,11 +3,11 @@
   "WorkspaceRootPath": "C:\\Users\\PC\\OneDrive\\Documentos\\siglo 2\\FUNDA\\SISTEMA VENTA EXFINAL\\BiblioVentas\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{DFA6491F-4FA8-4DF9-9005-B7DAE9CC8455}|BiblioVentas.csproj|C:\\Users\\PC\\OneDrive\\Documentos\\siglo 2\\FUNDA\\SISTEMA VENTA EXFINAL\\BiblioVentas\\ventas.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{DFA6491F-4FA8-4DF9-9005-B7DAE9CC8455}|BiblioVentas.csproj|c:\\users\\pc\\onedrive\\documentos\\siglo 2\\funda\\sistema venta exfinal\\biblioventas\\ventas.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{DFA6491F-4FA8-4DF9-9005-B7DAE9CC8455}|BiblioVentas.csproj|solutionrelative:ventas.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{DFA6491F-4FA8-4DF9-9005-B7DAE9CC8455}|BiblioVentas.csproj|c:\\users\\pc\\onedrive\\documentos\\siglo 2\\funda\\sistema venta exfinal\\biblioventas\\vboletas.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{DFA6491F-4FA8-4DF9-9005-B7DAE9CC8455}|BiblioVentas.csproj|C:\\Users\\PC\\OneDrive\\Documentos\\siglo 2\\FUNDA\\SISTEMA VENTA EXFINAL\\BiblioVentas\\vboletas.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{DFA6491F-4FA8-4DF9-9005-B7DAE9CC8455}|BiblioVentas.csproj|solutionrelative:vboletas.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
@@ -38,8 +38,7 @@
               "RelativeToolTip": "VBoletas.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAoAAAAFAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-11-29T00:42:19.036Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-11-29T00:42:19.036Z"
             },
             {
               "$type": "Document",

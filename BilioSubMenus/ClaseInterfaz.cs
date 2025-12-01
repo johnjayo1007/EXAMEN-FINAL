@@ -1,4 +1,5 @@
 ﻿using System;
+using BilioSubMenus;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -10,13 +11,12 @@ namespace BilioSubMenus
     {
         public static void Interfaz()
         {
-
-
             for (int i = 0; i < 3; i++)
             {
                 for (int j = 0; j < 110; j++)
                 {
                     Console.BackgroundColor = ConsoleColor.Yellow;
+            
                     Console.Write(" ");
                     Console.ResetColor();
                 }
@@ -63,7 +63,6 @@ namespace BilioSubMenus
 
             int opcion = 0;
             ConsoleKey tecla;
-            Interfaz();
 
             while (true)
             {
@@ -110,7 +109,6 @@ namespace BilioSubMenus
                 }
                 else if (tecla == ConsoleKey.Enter)
                 {
-                    Console.Clear();
                     return opcion;
                 }
 

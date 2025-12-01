@@ -3,24 +3,24 @@
   "WorkspaceRootPath": "C:\\Users\\PC\\OneDrive\\Documentos\\siglo 2\\FUNDA\\SISTEMA VENTA EXFINAL\\BiblioRegistrar\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{D4B4A6BF-7298-4904-968A-BA66BA1AA034}|BiblioRegistrar.csproj|C:\\Users\\PC\\OneDrive\\Documentos\\siglo 2\\FUNDA\\SISTEMA VENTA EXFINAL\\BiblioRegistrar\\registrar.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{D4B4A6BF-7298-4904-968A-BA66BA1AA034}|BiblioRegistrar.csproj|c:\\users\\pc\\onedrive\\documentos\\siglo 2\\funda\\sistema venta exfinal\\biblioregistrar\\registrar.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{D4B4A6BF-7298-4904-968A-BA66BA1AA034}|BiblioRegistrar.csproj|solutionrelative:registrar.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{D4B4A6BF-7298-4904-968A-BA66BA1AA034}|BiblioRegistrar.csproj|c:\\users\\pc\\onedrive\\documentos\\siglo 2\\funda\\sistema venta exfinal\\biblioregistrar\\rvendedor.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{D4B4A6BF-7298-4904-968A-BA66BA1AA034}|BiblioRegistrar.csproj|C:\\Users\\PC\\OneDrive\\Documentos\\siglo 2\\FUNDA\\SISTEMA VENTA EXFINAL\\BiblioRegistrar\\rvendedor.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{D4B4A6BF-7298-4904-968A-BA66BA1AA034}|BiblioRegistrar.csproj|solutionrelative:rvendedor.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{D4B4A6BF-7298-4904-968A-BA66BA1AA034}|BiblioRegistrar.csproj|C:\\Users\\PC\\OneDrive\\Documentos\\siglo 2\\FUNDA\\SISTEMA VENTA EXFINAL\\BiblioRegistrar\\rcliente.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{D4B4A6BF-7298-4904-968A-BA66BA1AA034}|BiblioRegistrar.csproj|solutionrelative:rcliente.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{D4B4A6BF-7298-4904-968A-BA66BA1AA034}|BiblioRegistrar.csproj|C:\\Users\\PC\\OneDrive\\Documentos\\siglo 2\\FUNDA\\SISTEMA VENTA EXFINAL\\BiblioRegistrar\\rproveedores.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{D4B4A6BF-7298-4904-968A-BA66BA1AA034}|BiblioRegistrar.csproj|solutionrelative:rproveedores.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{D4B4A6BF-7298-4904-968A-BA66BA1AA034}|BiblioRegistrar.csproj|C:\\Users\\PC\\OneDrive\\Documentos\\siglo 2\\FUNDA\\SISTEMA VENTA EXFINAL\\BiblioRegistrar\\rproducto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{D4B4A6BF-7298-4904-968A-BA66BA1AA034}|BiblioRegistrar.csproj|solutionrelative:rproducto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{D4B4A6BF-7298-4904-968A-BA66BA1AA034}|BiblioRegistrar.csproj|C:\\Users\\PC\\OneDrive\\Documentos\\siglo 2\\FUNDA\\SISTEMA VENTA EXFINAL\\BiblioRegistrar\\rproveedores.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{D4B4A6BF-7298-4904-968A-BA66BA1AA034}|BiblioRegistrar.csproj|solutionrelative:rproveedores.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{D4B4A6BF-7298-4904-968A-BA66BA1AA034}|BiblioRegistrar.csproj|C:\\Users\\PC\\OneDrive\\Documentos\\siglo 2\\FUNDA\\SISTEMA VENTA EXFINAL\\BiblioRegistrar\\rcliente.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{D4B4A6BF-7298-4904-968A-BA66BA1AA034}|BiblioRegistrar.csproj|solutionrelative:rcliente.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -48,22 +48,23 @@
               "RelativeDocumentMoniker": "RVendedor.cs",
               "ToolTip": "C:\\Users\\PC\\OneDrive\\Documentos\\siglo 2\\FUNDA\\SISTEMA VENTA EXFINAL\\BiblioRegistrar\\RVendedor.cs",
               "RelativeToolTip": "RVendedor.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAABEAAAAJAAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAJ4AAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-11-29T00:22:24.364Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 4,
+              "DocumentIndex": 2,
               "Title": "RProveedores.cs",
               "DocumentMoniker": "C:\\Users\\PC\\OneDrive\\Documentos\\siglo 2\\FUNDA\\SISTEMA VENTA EXFINAL\\BiblioRegistrar\\RProveedores.cs",
               "RelativeDocumentMoniker": "RProveedores.cs",
               "ToolTip": "C:\\Users\\PC\\OneDrive\\Documentos\\siglo 2\\FUNDA\\SISTEMA VENTA EXFINAL\\BiblioRegistrar\\RProveedores.cs",
               "RelativeToolTip": "RProveedores.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAALIAAAAeAAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAANgAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-11-29T00:21:48.351Z"
+              "WhenOpened": "2025-11-29T00:21:48.351Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
@@ -73,21 +74,23 @@
               "RelativeDocumentMoniker": "RProducto.cs",
               "ToolTip": "C:\\Users\\PC\\OneDrive\\Documentos\\siglo 2\\FUNDA\\SISTEMA VENTA EXFINAL\\BiblioRegistrar\\RProducto.cs",
               "RelativeToolTip": "RProducto.cs",
-              "ViewState": "AgIAAEAAAAAAAAAAAAAwwFcAAAAAAAAAAAAAAA==",
+              "ViewState": "AgIAAGcAAAAAAAAAAAAwwKkAAABAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-11-29T00:21:11.66Z"
+              "WhenOpened": "2025-11-29T00:21:11.66Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 4,
               "Title": "RCliente.cs",
               "DocumentMoniker": "C:\\Users\\PC\\OneDrive\\Documentos\\siglo 2\\FUNDA\\SISTEMA VENTA EXFINAL\\BiblioRegistrar\\RCliente.cs",
               "RelativeDocumentMoniker": "RCliente.cs",
               "ToolTip": "C:\\Users\\PC\\OneDrive\\Documentos\\siglo 2\\FUNDA\\SISTEMA VENTA EXFINAL\\BiblioRegistrar\\RCliente.cs",
               "RelativeToolTip": "RCliente.cs",
-              "ViewState": "AgIAAEkAAAAAAAAAAADwv1gAAAARAAAAAAAAAA==",
+              "ViewState": "AgIAAKkAAAAAAAAAAAAqwNgAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-11-29T00:20:07.341Z"
+              "WhenOpened": "2025-11-29T00:20:07.341Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
@@ -97,7 +100,7 @@
               "RelativeDocumentMoniker": "Registrar.cs",
               "ToolTip": "C:\\Users\\PC\\OneDrive\\Documentos\\siglo 2\\FUNDA\\SISTEMA VENTA EXFINAL\\BiblioRegistrar\\Registrar.cs",
               "RelativeToolTip": "Registrar.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAkAAAAFAAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAANAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-11-29T00:12:35.483Z",
               "EditorCaption": ""

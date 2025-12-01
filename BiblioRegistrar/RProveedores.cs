@@ -1,15 +1,12 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Net;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace BiblioRegistrar
 {
     public class RProveedores
     {
-        public class Proveedores
+        public class Proveedor
         {
             public string Codigo { get; set; }
             public string Empresa { get; set; }
@@ -18,166 +15,229 @@ namespace BiblioRegistrar
             public int Telefono { get; set; }
             public string Direccion { get; set; }
             public string Ciudad { get; set; }
-
         }
 
-        public static List<Proveedores> listaProveedores = new List<Proveedores>();
+        public static List<Proveedor> listaProveedores = new List<Proveedor>();
 
         public static void RegistrarProveedor()
         {
-            Console.Clear();
-            Console.WriteLine("=== REGISTRO DE PROVEEDORES ===\n");
+            for (int y = 6; y <= 28; y++)
+            {
+                Console.SetCursorPosition(1, y);
+                Console.Write(new string(' ', 108));
+            }
 
-            string codigo;
+            Console.ForegroundColor = ConsoleColor.Cyan;
+            Console.SetCursorPosition(4, 6);
+            Console.Write("╔═══════════════════════════════════════════════════════╗");
+            Console.SetCursorPosition(4, 7);
+            Console.Write("║               REGISTRO DE PROVEEDORES               ║");
+            Console.SetCursorPosition(4, 8);
+            Console.Write("╚═══════════════════════════════════════════════════════╝");
+            Console.ResetColor();
+
+            int linea = 10;
+            string codigo, empresa, ruc, representante, direccion, ciudad;
+            int telefono;
+
             while (true)
             {
-                Console.Write("Ingresa Codigo del Proveedor: ");
+                Console.SetCursorPosition(4, linea);
+                Console.Write("Código: ");
+                Console.SetCursorPosition(25, linea);
                 codigo = Console.ReadLine().Trim();
 
                 if (codigo == "")
                 {
-                    Console.WriteLine("ERROR. Codigo no puede estar vacío.\n");
+                    MostrarError("El código no puede estar vacío.", linea);
                     continue;
                 }
-
                 if (!int.TryParse(codigo, out _))
                 {
-                    Console.WriteLine("ERROR: Debe ser un número.\n");
+                    MostrarError("El código debe ser numérico.", linea);
                     continue;
                 }
-
-                bool existe = listaProveedores.Any(c => c.Codigo == codigo);
-                if (existe)
+                if (listaProveedores.Any(p => p.Codigo == codigo))
                 {
-                    Console.WriteLine("ERROR: El Codigo ya existe.\n");
+                    MostrarError("El código ya existe.", linea);
                     continue;
                 }
-
+                LimpiarError(linea);
                 break;
             }
 
-            string nombre;
+            linea++;
             while (true)
             {
-                Console.Write("Ingresa su Nombre de la Empresa Proveedora: ");
-                nombre = Console.ReadLine().Trim();
-                if (nombre == "")
+                Console.SetCursorPosition(4, linea);
+                Console.Write("Empresa: ");
+                Console.SetCursorPosition(25, linea);
+                empresa = Console.ReadLine().Trim();
+
+                if (empresa == "")
                 {
-                    Console.WriteLine("ERROR: El nombre no puede estar vacío.\n");
+                    MostrarError("El nombre de la empresa no puede estar vacío.", linea);
                     continue;
                 }
+                LimpiarError(linea);
                 break;
             }
 
-            string ruc;
+            linea++;
             while (true)
             {
-                Console.Write("Ingresa su Numero de Ruc: ");
+                Console.SetCursorPosition(4, linea);
+                Console.Write("RUC (11 dígitos): ");
+                Console.SetCursorPosition(25, linea);
                 ruc = Console.ReadLine().Trim();
+
                 if (ruc == "")
                 {
-                    Console.WriteLine("ERROR: El RUC no puede estar vacio.\n");
+                    MostrarError("El RUC no puede estar vacío.", linea);
                     continue;
                 }
-                if (!int.TryParse(ruc, out _))
+                if (!long.TryParse(ruc, out _))
                 {
-                    Console.WriteLine("ERROR: Debe ser un número.\n");
+                    MostrarError("El RUC debe ser numérico.", linea);
                     continue;
                 }
                 if (ruc.Length != 11)
                 {
-                    Console.WriteLine("ERROR: Debe tener 8 dígitos.\n");
+                    MostrarError("El RUC debe tener 11 dígitos.", linea);
                     continue;
                 }
-                bool existe = listaProveedores.Any(c => c.RUC == ruc);
-                if (existe)
+                if (listaProveedores.Any(p => p.RUC == ruc))
                 {
-                    Console.WriteLine("ERROR: El DNI ya existe.\n");
+                    MostrarError("El RUC ya existe.", linea);
                     continue;
                 }
+                LimpiarError(linea);
                 break;
             }
 
-            string representante;
+            linea++;
             while (true)
             {
-                Console.Write("Ingrese el Nombre del Representante: ");
+                Console.SetCursorPosition(4, linea);
+                Console.Write("Representante: ");
+                Console.SetCursorPosition(25, linea);
                 representante = Console.ReadLine().Trim();
+
                 if (representante == "")
                 {
-                    Console.WriteLine("ERROR:El nombre no puede estar vacio.\n");
+                    MostrarError("El nombre del representante no puede estar vacío.", linea);
                     continue;
                 }
+                LimpiarError(linea);
                 break;
             }
 
-            int telefono;
+            linea++;
             while (true)
             {
-                Console.Write("Ingrese su teléfono: ");
-                string cel = Console.ReadLine().Trim();
+                Console.SetCursorPosition(4, linea);
+                Console.Write("Teléfono (9 dígitos): ");
+                Console.SetCursorPosition(25, linea);
+                string input = Console.ReadLine().Trim();
 
-                if (cel == "")
+                if (input == "")
                 {
-                    Console.WriteLine("ERROR: El teléfono no puede estar en blanco.");
+                    MostrarError("El teléfono no puede estar vacío.", linea);
                     continue;
                 }
-
-                if (!int.TryParse(cel, out telefono))
+                if (!int.TryParse(input, out telefono))
                 {
-                    Console.WriteLine("ERROR: Debe ingresar solo números.");
+                    MostrarError("Debe ingresar solo números.", linea);
                     continue;
                 }
-                if (cel.Length != 9)
+                if (input.Length != 9)
                 {
-                    Console.WriteLine("ERROR: Debe tener 9 dígitos.\n");
+                    MostrarError("El teléfono debe tener 9 dígitos.", linea);
                     continue;
                 }
+                LimpiarError(linea);
                 break;
             }
 
-            string direccion;
+            linea++;
             while (true)
             {
-                Console.WriteLine("Ingrese su Direccion: ");
+                Console.SetCursorPosition(4, linea);
+                Console.Write("Dirección: ");
+                Console.SetCursorPosition(25, linea);
                 direccion = Console.ReadLine().Trim();
+
                 if (direccion == "")
                 {
-                    Console.WriteLine("ERROR: La direccion no puede estar en blanco.\n");
+                    MostrarError("La dirección no puede estar vacía.", linea);
                     continue;
                 }
+                LimpiarError(linea);
                 break;
             }
 
-            string ciudad;
+            linea++;
             while (true)
             {
-                Console.WriteLine("Ingrese su Ciudad: ");
-                ciudad = Console.ReadLine();
+                Console.SetCursorPosition(4, linea);
+                Console.Write("Ciudad: ");
+                Console.SetCursorPosition(25, linea);
+                ciudad = Console.ReadLine().Trim();
+
                 if (ciudad == "")
                 {
-                    Console.WriteLine("ERROR: La ciudad no puede estar vacio.\n");
+                    MostrarError("La ciudad no puede estar vacía.", linea);
                     continue;
                 }
+                LimpiarError(linea);
                 break;
             }
 
-            listaProveedores.Add(new Proveedores
+            listaProveedores.Add(new Proveedor
             {
                 Codigo = codigo,
-                Empresa = nombre,
+                Empresa = empresa,
                 RUC = ruc,
                 Representante = representante,
                 Telefono = telefono,
                 Direccion = direccion,
                 Ciudad = ciudad
-
             });
 
-            Console.WriteLine("\nProveedor registrado correctamente.");
-            Console.WriteLine("Presiona cualquier tecla para continuar...");
-            Console.ReadKey();
-            Console.Clear();
+            linea += 2;
+            Console.ForegroundColor = ConsoleColor.Green;
+            Console.SetCursorPosition(4, linea);
+            Console.Write("Proveedor registrado correctamente.");
+            Console.ResetColor();
+
+            linea++;
+            Console.SetCursorPosition(4, linea);
+            Console.Write("Presiona cualquier tecla para continuar...");
+            Console.ReadKey(true);
+
+            for (int y = 6; y <= 28; y++)
+            {
+                Console.SetCursorPosition(1, y);
+                Console.Write(new string(' ', 108));
+            }
+        }
+
+        private static void MostrarError(string mensaje, int lineaInput)
+        {
+            int lineaError = lineaInput + 1;
+            Console.SetCursorPosition(4, lineaError);
+            Console.ForegroundColor = ConsoleColor.Red;
+            Console.Write(new string(' ', 80));
+            Console.SetCursorPosition(4, lineaError);
+            Console.Write(mensaje);
+            Console.ResetColor();
+        }
+
+        private static void LimpiarError(int lineaInput)
+        {
+            int lineaError = lineaInput + 1;
+            Console.SetCursorPosition(4, lineaError);
+            Console.Write(new string(' ', 80));
         }
     }
 }

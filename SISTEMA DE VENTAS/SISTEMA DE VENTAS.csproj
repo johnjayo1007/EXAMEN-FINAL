@@ -33,6 +33,10 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="BiblioRegistrar, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\BilioSubMenus\bin\Debug\BiblioRegistrar.dll</HintPath>
+    </Reference>
     <Reference Include="BilioSubMenus">
       <HintPath>..\BilioSubMenus\bin\Debug\BilioSubMenus.dll</HintPath>
     </Reference>
