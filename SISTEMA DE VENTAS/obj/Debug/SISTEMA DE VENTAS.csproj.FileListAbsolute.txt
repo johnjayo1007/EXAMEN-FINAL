@@ -13,3 +13,5 @@ C:\Users\PC\OneDrive\Documentos\siglo 2\FUNDA\SISTEMA VENTA EXFINAL\SISTEMA DE V
 C:\Users\PC\OneDrive\Documentos\siglo 2\FUNDA\SISTEMA VENTA EXFINAL\SISTEMA DE VENTAS\obj\Debug\SISTEMA DE VENTAS.exe.config
 C:\Users\PC\OneDrive\Documentos\siglo 2\FUNDA\SISTEMA VENTA EXFINAL\SISTEMA DE VENTAS\bin\Debug\BiblioRegistrar.dll
 C:\Users\PC\OneDrive\Documentos\siglo 2\FUNDA\SISTEMA VENTA EXFINAL\SISTEMA DE VENTAS\bin\Debug\BilioSubMenus.dll
+C:\Users\PC\OneDrive\Documentos\siglo 2\FUNDA\SISTEMA VENTA EXFINAL\SISTEMA DE VENTAS\bin\Debug\BiblioReportes.dll
+C:\Users\PC\OneDrive\Documentos\siglo 2\FUNDA\SISTEMA VENTA EXFINAL\SISTEMA DE VENTAS\bin\Debug\BiblioReportes.pdb

@@ -12,6 +12,7 @@ namespace SISTEMA_DE_VENTAS
     {
         public static void Main(string[] args)
         {
+            Console.Clear();
             ClaseInterfaz.Interfaz();
 
             while (true)
@@ -28,21 +29,23 @@ namespace SISTEMA_DE_VENTAS
                         SubMenus.SubMenuVenta();
                         break;
                     case 2:
-                        Console.WriteLine("En proceso");
-                        Console.ReadKey(true);
-                        Console.Clear();
+                        SubMenus.SubMenuReportes();
                         break;
 
                     case 3:
+                        Console.SetCursorPosition(5, 20);
                         Console.WriteLine("En proceso");
                         Console.ReadKey(true);
-                        Console.Clear();  
+                        Console.Clear();
+                        ClaseInterfaz.Interfaz();
                         break;
 
                     case 4:
+                        Console.SetCursorPosition(5, 20);
                         Console.WriteLine("En Proceso");
                         Console.ReadKey(true);
                         Console.Clear();
+                        ClaseInterfaz.Interfaz();
                         break;
 
                     case 5:

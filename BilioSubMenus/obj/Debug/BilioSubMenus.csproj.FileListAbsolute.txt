@@ -9,3 +9,5 @@ C:\Users\PC\OneDrive\Documentos\siglo 2\FUNDA\SISTEMA VENTA EXFINAL\BilioSubMenu
 C:\Users\PC\OneDrive\Documentos\siglo 2\FUNDA\SISTEMA VENTA EXFINAL\BilioSubMenus\obj\Debug\BilioSub.F3DF2BA2.Up2Date
 C:\Users\PC\OneDrive\Documentos\siglo 2\FUNDA\SISTEMA VENTA EXFINAL\BilioSubMenus\obj\Debug\BilioSubMenus.dll
 C:\Users\PC\OneDrive\Documentos\siglo 2\FUNDA\SISTEMA VENTA EXFINAL\BilioSubMenus\obj\Debug\BilioSubMenus.pdb
+C:\Users\PC\OneDrive\Documentos\siglo 2\FUNDA\SISTEMA VENTA EXFINAL\BilioSubMenus\bin\Debug\BiblioReportes.dll
+C:\Users\PC\OneDrive\Documentos\siglo 2\FUNDA\SISTEMA VENTA EXFINAL\BilioSubMenus\bin\Debug\BiblioReportes.pdb

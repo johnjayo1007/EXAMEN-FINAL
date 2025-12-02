@@ -34,6 +34,9 @@
     <Reference Include="BiblioRegistrar">
       <HintPath>..\BiblioRegistrar\bin\Debug\BiblioRegistrar.dll</HintPath>
     </Reference>
+    <Reference Include="BiblioReportes">
+      <HintPath>..\BiblioReportes\bin\Debug\BiblioReportes.dll</HintPath>
+    </Reference>
     <Reference Include="BiblioVentas">
       <HintPath>..\BiblioVentas\bin\Debug\BiblioVentas.dll</HintPath>
     </Reference>

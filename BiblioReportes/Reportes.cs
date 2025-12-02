@@ -1,0 +1,131 @@
+﻿using BiblioRegistrar;
+using System;
+
+namespace BiblioReportes
+{
+    public class Reportes
+    {
+        public static void MostrarReporte(int tipo)
+        {
+            for (int y = 5; y < 29; y++)
+            {
+                Console.SetCursorPosition(1, y);
+                Console.Write(new string(' ', 108));
+            }
+
+            Console.ForegroundColor = ConsoleColor.Yellow;
+            Console.SetCursorPosition(5, 6);
+
+            string titulo = "";
+
+            switch (tipo)
+            {
+                case 0:
+                    titulo = "REPORTE DE CLIENTES";
+                    break;
+
+                case 1:
+                    titulo = "REPORTE DE PRODUCTOS";
+                    break;
+
+                case 2:
+                    titulo = "REPORTE DE VENDEDORES";
+                    break;
+
+                case 3:
+                    titulo = "REPORTE DE PROVEEDORES";
+                    break;
+
+                default:
+                    titulo = "";
+                    break;
+            }
+
+            Console.WriteLine("=== " + titulo + " ===");
+            Console.ResetColor();
+
+            int fila = 10;
+
+            switch (tipo)
+            {
+                case 0:
+                    Console.SetCursorPosition(5, 8);
+                    Console.WriteLine("DNI       | NOMBRE         | APELLIDO       | TELÉFONO");
+
+                    Console.SetCursorPosition(5, 9);
+                    Console.WriteLine("----------------------------------------------------------");
+
+                    foreach (var c in RCliente.listaClientes)
+                    {
+                        Console.SetCursorPosition(5, fila++);
+                        Console.WriteLine($"{c.DNI.PadRight(10)}| {c.Nombre.PadRight(14)}| {c.Apellido.PadRight(14)}| {c.Telefono}");
+                    }
+                    break;
+
+                case 1:
+                    Console.SetCursorPosition(5, 8);
+                    Console.WriteLine("CÓDIGO    | NOMBRE         | PRECIO");
+
+                    Console.SetCursorPosition(5, 9);
+                    Console.WriteLine("-------------------------------------");
+
+                    foreach (var p in RProducto.listaProductos)
+                    {
+                        Console.SetCursorPosition(5, fila++);
+                        Console.WriteLine($"{p.Codigo.PadRight(10)}| {p.Nombre.PadRight(14)}| {p.Precio}");
+                    }
+                    break;
+
+                case 2:
+                    Console.SetCursorPosition(5, 8);
+                    Console.WriteLine("CÓDIGO    | NOMBRE         | APELLIDO       | SUELDO");
+
+                    Console.SetCursorPosition(5, 9);
+                    Console.WriteLine("----------------------------------------------------------");
+
+                    foreach (var v in RVendedor.listaVendedores)
+                    {
+                        Console.SetCursorPosition(5, fila++);
+                        Console.WriteLine($"{v.Codigo.PadRight(10)}| {v.Nombre.PadRight(14)}| {v.Apellidos.PadRight(14)}| {v.Sueldo}");
+                    }
+                    break;
+
+                case 3:
+                    Console.SetCursorPosition(5, 8);
+                    Console.WriteLine("CODIGO    | EMPRESA        | RUC          | REPRESENTANTE   | TELÉFONO");
+
+                    Console.SetCursorPosition(5, 9);
+                    Console.WriteLine("--------------------------------------------------------------------------");
+
+                    foreach (RProveedores.Proveedor pr in RProveedores.listaProveedores)
+                    {
+                        Console.SetCursorPosition(5, fila++);
+                        Console.WriteLine(
+                            $"{pr.Codigo.PadRight(10)}| " +
+                            $"{pr.Empresa.PadRight(14)}| " +
+                            $"{pr.RUC.PadRight(12)}| " +
+                            $"{pr.Representante.PadRight(16)}| " +
+                            $"{pr.Telefono}"
+                        );
+                    }
+                    break;
+            }
+
+            Console.SetCursorPosition(5, 27);
+            Console.Write("Presiona ESC para volver...");
+
+            while (true)
+            {
+                ConsoleKey tecla = Console.ReadKey(true).Key;
+                if (tecla == ConsoleKey.Escape)
+                    break;
+            }
+
+            for (int y = 5; y < 29; y++)
+            {
+                Console.SetCursorPosition(1, y);
+                Console.Write(new string(' ', 108));
+            }
+        }
+    }
+}
