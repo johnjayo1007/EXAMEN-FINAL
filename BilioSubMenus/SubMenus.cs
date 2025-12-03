@@ -41,7 +41,8 @@ namespace BilioSubMenus
             } while (sub != -1);
 
         }
-        public static void SubMenuVenta()
+
+        public static void SubmenuVentas()
         {
             int sub;
             do
@@ -56,22 +57,30 @@ namespace BilioSubMenus
                     case 1:
                         Console.Clear();
                         Console.WriteLine("Seguimos trabajando...");
-                        Console.ReadKey(true);
+                        Console.ResetColor();
+                        Console.ReadKey();
+                        Console.Clear();
                         break;
                     case 2:
                         Console.Clear();
                         Console.WriteLine("Seguimos trabajando...");
-                        Console.ReadKey(true);
+                        Console.ReadKey();
+                        Console.Clear();
                         break;
                     case 3:
                         Console.Clear();
                         Console.WriteLine("Seguimos trabajando...");
-                        Console.ReadKey(true);
+                        Console.ReadKey();
+                        Console.Clear();
+                        break;
+                    case 4:
+                        Console.Clear();
                         break;
                 }
             }
-            while (sub != -1);
+            while (sub != 4);
         }
+
         public static void SubMenuReportes()
         {
             string[] opciones = {
@@ -89,8 +98,6 @@ namespace BilioSubMenus
                 Console.CursorVisible = false;
 
                 Console.ForegroundColor = ConsoleColor.Yellow;
-                Console.SetCursorPosition(5, 6);
-                Console.WriteLine("=== SUB MENÚ DE REPORTES ===");
 
                 for (int i = 0; i < opciones.Length; i++)
                 {

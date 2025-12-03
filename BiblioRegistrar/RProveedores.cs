@@ -50,16 +50,31 @@ namespace BiblioRegistrar
                 if (codigo == "")
                 {
                     MostrarError("El código no puede estar vacío.", linea);
+
+                    Console.SetCursorPosition(25, linea);
+                    Console.Write(new string(' ', 50));
+                    Console.SetCursorPosition(25, linea);
+
                     continue;
                 }
                 if (!int.TryParse(codigo, out _))
                 {
                     MostrarError("El código debe ser numérico.", linea);
+
+                    Console.SetCursorPosition(25, linea);
+                    Console.Write(new string(' ', 50));
+                    Console.SetCursorPosition(25, linea);
+
                     continue;
                 }
                 if (listaProveedores.Any(p => p.Codigo == codigo))
                 {
                     MostrarError("El código ya existe.", linea);
+
+                    Console.SetCursorPosition(25, linea);
+                    Console.Write(new string(' ', 50));
+                    Console.SetCursorPosition(25, linea);
+
                     continue;
                 }
                 LimpiarError(linea);
@@ -77,6 +92,11 @@ namespace BiblioRegistrar
                 if (empresa == "")
                 {
                     MostrarError("El nombre de la empresa no puede estar vacío.", linea);
+
+                    Console.SetCursorPosition(25, linea);
+                    Console.Write(new string(' ', 50));
+                    Console.SetCursorPosition(25, linea);
+
                     continue;
                 }
                 LimpiarError(linea);
@@ -94,21 +114,41 @@ namespace BiblioRegistrar
                 if (ruc == "")
                 {
                     MostrarError("El RUC no puede estar vacío.", linea);
+
+                    Console.SetCursorPosition(25, linea);
+                    Console.Write(new string(' ', 50));
+                    Console.SetCursorPosition(25, linea);
+
                     continue;
                 }
                 if (!long.TryParse(ruc, out _))
                 {
                     MostrarError("El RUC debe ser numérico.", linea);
+
+                    Console.SetCursorPosition(25, linea);
+                    Console.Write(new string(' ', 50));
+                    Console.SetCursorPosition(25, linea);
+
                     continue;
                 }
                 if (ruc.Length != 11)
                 {
                     MostrarError("El RUC debe tener 11 dígitos.", linea);
+
+                    Console.SetCursorPosition(25, linea);
+                    Console.Write(new string(' ', 50));
+                    Console.SetCursorPosition(25, linea);
+
                     continue;
                 }
                 if (listaProveedores.Any(p => p.RUC == ruc))
                 {
                     MostrarError("El RUC ya existe.", linea);
+
+                    Console.SetCursorPosition(25, linea);
+                    Console.Write(new string(' ', 50));
+                    Console.SetCursorPosition(25, linea);
+
                     continue;
                 }
                 LimpiarError(linea);
@@ -126,6 +166,11 @@ namespace BiblioRegistrar
                 if (representante == "")
                 {
                     MostrarError("El nombre del representante no puede estar vacío.", linea);
+
+                    Console.SetCursorPosition(25, linea);
+                    Console.Write(new string(' ', 50));
+                    Console.SetCursorPosition(25, linea);
+
                     continue;
                 }
                 LimpiarError(linea);
@@ -143,16 +188,31 @@ namespace BiblioRegistrar
                 if (input == "")
                 {
                     MostrarError("El teléfono no puede estar vacío.", linea);
+
+                    Console.SetCursorPosition(25, linea);
+                    Console.Write(new string(' ', 50));
+                    Console.SetCursorPosition(25, linea);
+
                     continue;
                 }
                 if (!int.TryParse(input, out telefono))
                 {
                     MostrarError("Debe ingresar solo números.", linea);
+
+                    Console.SetCursorPosition(25, linea);
+                    Console.Write(new string(' ', 50));
+                    Console.SetCursorPosition(25, linea);
+
                     continue;
                 }
                 if (input.Length != 9)
                 {
                     MostrarError("El teléfono debe tener 9 dígitos.", linea);
+
+                    Console.SetCursorPosition(25, linea);
+                    Console.Write(new string(' ', 50));
+                    Console.SetCursorPosition(25, linea);
+
                     continue;
                 }
                 LimpiarError(linea);
@@ -170,6 +230,11 @@ namespace BiblioRegistrar
                 if (direccion == "")
                 {
                     MostrarError("La dirección no puede estar vacía.", linea);
+
+                    Console.SetCursorPosition(25, linea);
+                    Console.Write(new string(' ', 50));
+                    Console.SetCursorPosition(25, linea);
+
                     continue;
                 }
                 LimpiarError(linea);
@@ -187,6 +252,11 @@ namespace BiblioRegistrar
                 if (ciudad == "")
                 {
                     MostrarError("La ciudad no puede estar vacía.", linea);
+
+                    Console.SetCursorPosition(25, linea);
+                    Console.Write(new string(' ', 50));
+                    Console.SetCursorPosition(25, linea);
+
                     continue;
                 }
                 LimpiarError(linea);
@@ -241,3 +311,4 @@ namespace BiblioRegistrar
         }
     }
 }
+

@@ -19,7 +19,6 @@ namespace BiblioRegistrar
 
         public static void RegistrarVendedor()
         {
-            // Limpiar zona de trabajo
             for (int y = 6; y <= 28; y++)
             {
                 Console.SetCursorPosition(1, y);
@@ -49,11 +48,21 @@ namespace BiblioRegistrar
                 if (codigo == "")
                 {
                     MostrarError("El código no puede estar vacío.", linea);
+
+                    Console.SetCursorPosition(25, linea);
+                    Console.Write(new string(' ', 50));
+                    Console.SetCursorPosition(25, linea);
+
                     continue;
                 }
                 if (listaVendedores.Any(v => v.Codigo == codigo))
                 {
                     MostrarError("El código ya existe.", linea);
+
+                    Console.SetCursorPosition(25, linea);
+                    Console.Write(new string(' ', 50));
+                    Console.SetCursorPosition(25, linea);
+
                     continue;
                 }
                 LimpiarError(linea);
@@ -71,6 +80,11 @@ namespace BiblioRegistrar
                 if (nombre == "")
                 {
                     MostrarError("El nombre no puede estar vacío.", linea);
+
+                    Console.SetCursorPosition(25, linea);
+                    Console.Write(new string(' ', 50));
+                    Console.SetCursorPosition(25, linea);
+
                     continue;
                 }
                 LimpiarError(linea);
@@ -88,6 +102,11 @@ namespace BiblioRegistrar
                 if (apellidos == "")
                 {
                     MostrarError("El apellido no puede estar vacío.", linea);
+
+                    Console.SetCursorPosition(25, linea);
+                    Console.Write(new string(' ', 50));
+                    Console.SetCursorPosition(25, linea);
+
                     continue;
                 }
                 LimpiarError(linea);
@@ -101,9 +120,15 @@ namespace BiblioRegistrar
                 Console.Write("Sueldo: ");
                 Console.SetCursorPosition(25, linea);
                 string inputSueldo = Console.ReadLine().Trim();
+
                 if (!int.TryParse(inputSueldo, out sueldo) || sueldo < 0)
                 {
                     MostrarError("Ingresa un número válido para sueldo.", linea);
+
+                    Console.SetCursorPosition(25, linea);
+                    Console.Write(new string(' ', 50));
+                    Console.SetCursorPosition(25, linea);
+
                     continue;
                 }
                 LimpiarError(linea);
@@ -121,16 +146,31 @@ namespace BiblioRegistrar
                 if (inputTel == "")
                 {
                     MostrarError("El teléfono no puede estar vacío.", linea);
+
+                    Console.SetCursorPosition(25, linea);
+                    Console.Write(new string(' ', 50));
+                    Console.SetCursorPosition(25, linea);
+
                     continue;
                 }
                 if (!int.TryParse(inputTel, out telefono))
                 {
                     MostrarError("Debe ingresar solo números.", linea);
+
+                    Console.SetCursorPosition(25, linea);
+                    Console.Write(new string(' ', 50));
+                    Console.SetCursorPosition(25, linea);
+
                     continue;
                 }
                 if (inputTel.Length != 9)
                 {
                     MostrarError("El teléfono debe tener 9 dígitos.", linea);
+
+                    Console.SetCursorPosition(25, linea);
+                    Console.Write(new string(' ', 50));
+                    Console.SetCursorPosition(25, linea);
+
                     continue;
                 }
                 LimpiarError(linea);
@@ -169,7 +209,7 @@ namespace BiblioRegistrar
             int lineaError = lineaInput + 1;
             Console.SetCursorPosition(4, lineaError);
             Console.ForegroundColor = ConsoleColor.Red;
-            Console.Write(new string(' ', 80)); // limpiar línea de error
+            Console.Write(new string(' ', 80));
             Console.SetCursorPosition(4, lineaError);
             Console.Write(mensaje);
             Console.ResetColor();

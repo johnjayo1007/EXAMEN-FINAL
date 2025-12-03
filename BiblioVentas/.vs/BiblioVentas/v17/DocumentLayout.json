@@ -3,12 +3,12 @@
   "WorkspaceRootPath": "C:\\Users\\PC\\OneDrive\\Documentos\\siglo 2\\FUNDA\\SISTEMA VENTA EXFINAL\\BiblioVentas\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{DFA6491F-4FA8-4DF9-9005-B7DAE9CC8455}|BiblioVentas.csproj|c:\\users\\pc\\onedrive\\documentos\\siglo 2\\funda\\sistema venta exfinal\\biblioventas\\ventas.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{DFA6491F-4FA8-4DF9-9005-B7DAE9CC8455}|BiblioVentas.csproj|solutionrelative:ventas.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{8BB5E710-269D-4BFF-A92C-4DCB562CA9C9}|BiblioVentas.csproj|c:\\users\\pc\\onedrive\\documentos\\siglo 2\\funda\\sistema venta exfinal\\biblioventas\\vboletas.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{8BB5E710-269D-4BFF-A92C-4DCB562CA9C9}|BiblioVentas.csproj|solutionrelative:vboletas.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{DFA6491F-4FA8-4DF9-9005-B7DAE9CC8455}|BiblioVentas.csproj|C:\\Users\\PC\\OneDrive\\Documentos\\siglo 2\\FUNDA\\SISTEMA VENTA EXFINAL\\BiblioVentas\\vboletas.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{DFA6491F-4FA8-4DF9-9005-B7DAE9CC8455}|BiblioVentas.csproj|solutionrelative:vboletas.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{8BB5E710-269D-4BFF-A92C-4DCB562CA9C9}|BiblioVentas.csproj|c:\\users\\pc\\onedrive\\documentos\\siglo 2\\funda\\sistema venta exfinal\\biblioventas\\ventas.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{8BB5E710-269D-4BFF-A92C-4DCB562CA9C9}|BiblioVentas.csproj|solutionrelative:ventas.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -18,40 +18,41 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 3,
+          "SelectedChildIndex": 2,
           "Children": [
             {
               "$type": "Bookmark",
               "Name": "ST:1:0:{d212f56b-c48a-434c-a121-1c5d80b59b9f}"
             },
             {
-              "$type": "Bookmark",
-              "Name": "ST:0:0:{34e76e81-ee4a-11d0-ae2e-00a0c90fffc3}"
-            },
-            {
               "$type": "Document",
               "DocumentIndex": 1,
-              "Title": "VBoletas.cs",
-              "DocumentMoniker": "C:\\Users\\PC\\OneDrive\\Documentos\\siglo 2\\FUNDA\\SISTEMA VENTA EXFINAL\\BiblioVentas\\VBoletas.cs",
-              "RelativeDocumentMoniker": "VBoletas.cs",
-              "ToolTip": "C:\\Users\\PC\\OneDrive\\Documentos\\siglo 2\\FUNDA\\SISTEMA VENTA EXFINAL\\BiblioVentas\\VBoletas.cs",
-              "RelativeToolTip": "VBoletas.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAoAAAAFAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-11-29T00:42:19.036Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 0,
               "Title": "Ventas.cs",
               "DocumentMoniker": "C:\\Users\\PC\\OneDrive\\Documentos\\siglo 2\\FUNDA\\SISTEMA VENTA EXFINAL\\BiblioVentas\\Ventas.cs",
               "RelativeDocumentMoniker": "Ventas.cs",
               "ToolTip": "C:\\Users\\PC\\OneDrive\\Documentos\\siglo 2\\FUNDA\\SISTEMA VENTA EXFINAL\\BiblioVentas\\Ventas.cs",
               "RelativeToolTip": "Ventas.cs",
-              "ViewState": "AgIAAEwAAAAAAAAAAAAQwDoAAAAzAAAAAAAAAA==",
+              "ViewState": "AgIAAAYAAAAAAAAAAAAAAAEAAAAUAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-11-29T00:13:25.905Z",
+              "WhenOpened": "2025-12-03T03:34:59.093Z",
               "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "VBoletas.cs",
+              "DocumentMoniker": "C:\\Users\\PC\\OneDrive\\Documentos\\siglo 2\\FUNDA\\SISTEMA VENTA EXFINAL\\BiblioVentas\\VBoletas.cs",
+              "RelativeDocumentMoniker": "VBoletas.cs",
+              "ToolTip": "C:\\Users\\PC\\OneDrive\\Documentos\\siglo 2\\FUNDA\\SISTEMA VENTA EXFINAL\\BiblioVentas\\VBoletas.cs",
+              "RelativeToolTip": "VBoletas.cs",
+              "ViewState": "AgIAAFQAAAAAAAAAAAAuwMgAAAAVAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-12-03T03:34:31.604Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{34e76e81-ee4a-11d0-ae2e-00a0c90fffc3}"
             }
           ]
         }

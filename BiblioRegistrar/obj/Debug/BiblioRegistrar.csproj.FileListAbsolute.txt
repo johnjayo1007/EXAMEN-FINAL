@@ -9,3 +9,5 @@ C:\Users\PC\OneDrive\Documentos\siglo 2\FUNDA\SISTEMA VENTA EXFINAL\BiblioRegist
 C:\Users\PC\OneDrive\Documentos\siglo 2\FUNDA\SISTEMA VENTA EXFINAL\BiblioRegistrar\bin\Debug\BilioSubMenus.pdb
 C:\Users\PC\OneDrive\Documentos\siglo 2\FUNDA\SISTEMA VENTA EXFINAL\BiblioRegistrar\bin\Debug\BiblioVentas.pdb
 C:\Users\PC\OneDrive\Documentos\siglo 2\FUNDA\SISTEMA VENTA EXFINAL\BiblioRegistrar\obj\Debug\BiblioRe.2AD106C0.Up2Date
+C:\Users\PC\OneDrive\Documentos\siglo 2\FUNDA\SISTEMA VENTA EXFINAL\BiblioRegistrar\bin\Debug\BiblioReportes.dll
+C:\Users\PC\OneDrive\Documentos\siglo 2\FUNDA\SISTEMA VENTA EXFINAL\BiblioRegistrar\bin\Debug\BiblioReportes.pdb

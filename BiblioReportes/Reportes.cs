@@ -1,5 +1,11 @@
 ﻿using BiblioRegistrar;
+using BiblioVentas;
+using Microsoft.Win32;
 using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
 
 namespace BiblioReportes
 {
@@ -20,25 +26,12 @@ namespace BiblioReportes
 
             switch (tipo)
             {
-                case 0:
-                    titulo = "REPORTE DE CLIENTES";
-                    break;
-
-                case 1:
-                    titulo = "REPORTE DE PRODUCTOS";
-                    break;
-
-                case 2:
-                    titulo = "REPORTE DE VENDEDORES";
-                    break;
-
-                case 3:
-                    titulo = "REPORTE DE PROVEEDORES";
-                    break;
-
-                default:
-                    titulo = "";
-                    break;
+                case 0: titulo = "REPORTE DE CLIENTES"; break;
+                case 1: titulo = "REPORTE DE PRODUCTOS"; break;
+                case 2: titulo = "REPORTE DE VENDEDORES"; break;
+                case 3: titulo = "REPORTE DE PROVEEDORES"; break;
+                case 4: titulo = "REPORTE DE BOLETAS"; break;   // ← AGREGADO
+                default: titulo = ""; break;
             }
 
             Console.WriteLine("=== " + titulo + " ===");
@@ -51,7 +44,6 @@ namespace BiblioReportes
                 case 0:
                     Console.SetCursorPosition(5, 8);
                     Console.WriteLine("DNI       | NOMBRE         | APELLIDO       | TELÉFONO");
-
                     Console.SetCursorPosition(5, 9);
                     Console.WriteLine("----------------------------------------------------------");
 
@@ -65,7 +57,6 @@ namespace BiblioReportes
                 case 1:
                     Console.SetCursorPosition(5, 8);
                     Console.WriteLine("CÓDIGO    | NOMBRE         | PRECIO");
-
                     Console.SetCursorPosition(5, 9);
                     Console.WriteLine("-------------------------------------");
 
@@ -79,7 +70,6 @@ namespace BiblioReportes
                 case 2:
                     Console.SetCursorPosition(5, 8);
                     Console.WriteLine("CÓDIGO    | NOMBRE         | APELLIDO       | SUELDO");
-
                     Console.SetCursorPosition(5, 9);
                     Console.WriteLine("----------------------------------------------------------");
 
@@ -93,7 +83,6 @@ namespace BiblioReportes
                 case 3:
                     Console.SetCursorPosition(5, 8);
                     Console.WriteLine("CODIGO    | EMPRESA        | RUC          | REPRESENTANTE   | TELÉFONO");
-
                     Console.SetCursorPosition(5, 9);
                     Console.WriteLine("--------------------------------------------------------------------------");
 
@@ -109,10 +98,33 @@ namespace BiblioReportes
                         );
                     }
                     break;
-            }
 
-            Console.SetCursorPosition(5, 27);
-            Console.Write("Presiona ESC para volver...");
+                case 4:
+                    Console.SetCursorPosition(5, 8);
+                    Console.WriteLine("N° BOLETA | CLIENTE        | VENDEDOR       | TOTAL");
+                    Console.SetCursorPosition(5, 9);
+                    Console.WriteLine("--------------------------------------------------------------");
+
+                    foreach (var b in VBoletas.listaBoleta)
+                    {
+                        Console.SetCursorPosition(5, fila++);
+                        Console.WriteLine(
+                            $"{b.NROBOLETA.PadRight(10)}| " +
+                            $"{b.CLIENTE.PadRight(14)}| " +
+                            $"{b.VENDEDOR.PadRight(14)}| " +
+                            $"{b.TOTAL}"
+                        );
+
+                        foreach (var item in b.Items)
+                        {
+                            Console.SetCursorPosition(7, fila++);
+                            Console.WriteLine($"→ {item.Producto}  x{item.Cantidad}  = {item.Monto}");
+                        }
+
+                        fila++; 
+                    }
+                    break;
+            }
 
             while (true)
             {
@@ -129,3 +141,4 @@ namespace BiblioReportes
         }
     }
 }
+

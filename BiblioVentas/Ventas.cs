@@ -1,4 +1,5 @@
 ﻿using System;
+using BilioSubMenus;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -10,53 +11,50 @@ namespace BiblioVentas
     {
         public static int Venta()
         {
-            string[] opciones = { "BOLETA", "FACTURA", "GUIA REM", "PROFORMA"};
+            string[] arregloMenu = { "REGISTRA", "VENTAS", "REPORTES", "MODIFICAR", "AYUDA", "SALIR" };
+            string[] opciones = { "BOLETA", "FACTURA", "GUIA REM", "PROFORMA", "VOLVER" };
 
             int opcion = 0;
+            int alineaIzquierda = 1;
             ConsoleKey tecla;
             Console.Clear();
-            Console.CursorVisible = false;
 
-            for (int x = 8; x <= 60; x++)
+            ClaseInterfaz.Interfaz();
+
+            for (int i = 0; i < arregloMenu.Length; i++)
             {
-                Console.SetCursorPosition(x, 1);
-                Console.BackgroundColor = ConsoleColor.Yellow;
-                Console.Write(" ");
+                Console.SetCursorPosition(alineaIzquierda, 3);
+
+                if (i == 1)
+                {
+                    Console.BackgroundColor = ConsoleColor.Black;
+                    Console.ForegroundColor = ConsoleColor.White;
+                }
+                else
+                {
+                    Console.BackgroundColor = ConsoleColor.White;
+                    Console.ForegroundColor = ConsoleColor.Black;
+                }
+
+                Console.Write("                 ");
+                Console.SetCursorPosition(alineaIzquierda + 4, 3);
+                Console.Write(arregloMenu[i]);
+                Console.ResetColor();
+
+                alineaIzquierda = alineaIzquierda + 18;
             }
-
-            for (int x = 8; x <= 60; x++)
-            {
-                Console.SetCursorPosition(x, 18);
-                Console.BackgroundColor = ConsoleColor.Yellow;
-                Console.Write(" ");
-            }
-
-            for (int y = 1; y <= 18; y++)
-            {
-                Console.SetCursorPosition(8, y);
-                Console.BackgroundColor = ConsoleColor.Yellow;
-                Console.Write(" ");
-            }
-
-            for (int y = 1; y <= 18; y++)
-            {
-                Console.SetCursorPosition(60, y);
-                Console.BackgroundColor = ConsoleColor.Yellow;
-                Console.Write(" ");
-            }
-
-            Console.ResetColor();
-
-            Console.ForegroundColor = ConsoleColor.Yellow;
-            Console.SetCursorPosition(15, 3);
-            Console.WriteLine("======SUBMENÚ DE VENTAS======");
-            Console.ResetColor();
 
             while (true)
             {
+                Console.BackgroundColor = ConsoleColor.Yellow;
+                Console.ForegroundColor = ConsoleColor.Black;
+                Console.SetCursorPosition(40, 1);
+                Console.WriteLine("SISTEMA PARA GESTIONAR VENTAS");
+                Console.ResetColor();
+
                 for (int i = 0; i < opciones.Length; i++)
                 {
-                    Console.SetCursorPosition(15, 6 + (i * 2));
+                    Console.SetCursorPosition(20, 5 + (i * 2));
 
                     if (i == opcion)
                     {
@@ -89,14 +87,7 @@ namespace BiblioVentas
 
                 else if (tecla == ConsoleKey.Enter)
                 {
-                    Console.Clear();
                     return opcion;
-                }
-
-                else if (tecla == ConsoleKey.Escape)
-                {
-                    Console.Clear();
-                    return -1;
                 }
             }
         }

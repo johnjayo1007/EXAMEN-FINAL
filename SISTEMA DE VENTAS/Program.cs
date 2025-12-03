@@ -26,7 +26,7 @@ namespace SISTEMA_DE_VENTAS
                         SubMenus.SubMenuRegistrar();
                         break;
                     case 1:
-                        SubMenus.SubMenuVenta();
+                        SubMenus.SubmenuVentas();
                         break;
                     case 2:
                         SubMenus.SubMenuReportes();

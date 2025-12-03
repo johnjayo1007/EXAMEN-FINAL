@@ -4,7 +4,7 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{DFA6491F-4FA8-4DF9-9005-B7DAE9CC8455}</ProjectGuid>
+    <ProjectGuid>{8BB5E710-269D-4BFF-A92C-4DCB562CA9C9}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>BiblioVentas</RootNamespace>
@@ -32,7 +32,13 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="BiblioRegistrar">
-      <HintPath>..\BiblioRegistrar\bin\Debug\BiblioRegistrar.dll</HintPath>
+      <HintPath>..\BilioSubMenus\bin\Debug\BiblioRegistrar.dll</HintPath>
+    </Reference>
+    <Reference Include="BiblioReportes">
+      <HintPath>..\BilioSubMenus\bin\Debug\BiblioReportes.dll</HintPath>
+    </Reference>
+    <Reference Include="BilioSubMenus">
+      <HintPath>..\BilioSubMenus\bin\Debug\BilioSubMenus.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
@@ -45,8 +51,8 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="VBoletas.cs" />
-    <Compile Include="Ventas.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Ventas.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

@@ -37,7 +37,8 @@
     <Reference Include="BiblioReportes">
       <HintPath>..\BiblioReportes\bin\Debug\BiblioReportes.dll</HintPath>
     </Reference>
-    <Reference Include="BiblioVentas">
+    <Reference Include="BiblioVentas, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
       <HintPath>..\BiblioVentas\bin\Debug\BiblioVentas.dll</HintPath>
     </Reference>
     <Reference Include="System" />

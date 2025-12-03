@@ -29,7 +29,7 @@ namespace BiblioRegistrar
             Console.SetCursorPosition(4, 6);
             Console.Write("╔═══════════════════════════════════════════════════════╗");
             Console.SetCursorPosition(4, 7);
-            Console.Write("║               REGISTRO DE PRODUCTOS                 ║");
+            Console.Write("║               REGISTRO DE PRODUCTOS                   ║");
             Console.SetCursorPosition(4, 8);
             Console.Write("╚═══════════════════════════════════════════════════════╝");
             Console.ResetColor();
@@ -49,11 +49,22 @@ namespace BiblioRegistrar
                 if (codigo == "")
                 {
                     MostrarError("El código no puede estar vacío.", linea);
+
+                    Console.SetCursorPosition(25, linea);
+                    Console.Write(new string(' ', 50));
+                    Console.SetCursorPosition(25, linea);
+
                     continue;
                 }
+
                 if (listaProductos.Any(p => p.Codigo == codigo))
                 {
                     MostrarError("El código ya existe.", linea);
+
+                    Console.SetCursorPosition(25, linea);
+                    Console.Write(new string(' ', 50));
+                    Console.SetCursorPosition(25, linea);
+
                     continue;
                 }
 
@@ -72,11 +83,22 @@ namespace BiblioRegistrar
                 if (nombre == "")
                 {
                     MostrarError("El nombre no puede estar vacío.", linea);
+
+                    Console.SetCursorPosition(25, linea);
+                    Console.Write(new string(' ', 50));
+                    Console.SetCursorPosition(25, linea);
+
                     continue;
                 }
+
                 if (listaProductos.Any(p => p.Nombre == nombre))
                 {
                     MostrarError("El nombre ya existe.", linea);
+
+                    Console.SetCursorPosition(25, linea);
+                    Console.Write(new string(' ', 50));
+                    Console.SetCursorPosition(25, linea);
+
                     continue;
                 }
 
@@ -94,7 +116,12 @@ namespace BiblioRegistrar
 
                 if (categoria == "")
                 {
-                    MostrarError("La categoria no puede estar vacío.", linea);
+                    MostrarError("La categoría no puede estar vacía.", linea);
+
+                    Console.SetCursorPosition(25, linea);
+                    Console.Write(new string(' ', 50));
+                    Console.SetCursorPosition(25, linea);
+
                     continue;
                 }
 
@@ -109,9 +136,15 @@ namespace BiblioRegistrar
                 Console.Write("Stock: ");
                 Console.SetCursorPosition(25, linea);
                 string stockInput = Console.ReadLine().Trim();
+
                 if (!int.TryParse(stockInput, out stock) || stock < 0)
                 {
                     MostrarError("Ingresa un número válido para stock.", linea);
+
+                    Console.SetCursorPosition(25, linea);
+                    Console.Write(new string(' ', 50));
+                    Console.SetCursorPosition(25, linea);
+
                     continue;
                 }
 
@@ -126,9 +159,15 @@ namespace BiblioRegistrar
                 Console.Write("Precio Unitario: ");
                 Console.SetCursorPosition(25, linea);
                 string precioInput = Console.ReadLine().Trim();
+
                 if (!decimal.TryParse(precioInput, out precioU) || precioU < 0)
                 {
                     MostrarError("Ingresa un precio válido.", linea);
+
+                    Console.SetCursorPosition(25, linea);
+                    Console.Write(new string(' ', 50));
+                    Console.SetCursorPosition(25, linea);
+
                     continue;
                 }
 
@@ -162,12 +201,11 @@ namespace BiblioRegistrar
                 Console.Write(new string(' ', 108));
             }
         }
-
         private static void MostrarError(string mensaje, int lineaInput)
         {
             int lineaError = lineaInput + 1;
             Console.SetCursorPosition(4, lineaError);
-            Console.Write(new string(' ', 80)); // limpiar línea
+            Console.Write(new string(' ', 80));
             Console.SetCursorPosition(4, lineaError);
             Console.ForegroundColor = ConsoleColor.Red;
             Console.Write(mensaje);
@@ -182,3 +220,4 @@ namespace BiblioRegistrar
         }
     }
 }
+

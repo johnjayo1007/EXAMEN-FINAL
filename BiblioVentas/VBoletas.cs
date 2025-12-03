@@ -1,4 +1,5 @@
 ﻿using System;
+using BilioSubMenus;
 using BiblioRegistrar;
 using System.Collections.Generic;
 using System.Linq;
@@ -9,6 +10,53 @@ namespace BiblioVentas
 {
     public class VBoletas
     {
+        //**********SIMULADOR DE TEXTBOX**********
+        public static string LeerTextBox(int x, int y, int maxLen)
+        {
+
+            Console.SetCursorPosition(x, y);
+            Console.Write(new string(' ', maxLen));
+            Console.SetCursorPosition(x, y);
+
+            string texto = "";
+            ConsoleKeyInfo tecla;
+
+            while (true)
+            {
+                tecla = Console.ReadKey(true);
+
+                if (tecla.Key == ConsoleKey.Enter)
+                    break;
+
+                if (tecla.Key == ConsoleKey.Backspace)
+                {
+                    if (texto.Length > 0)
+                    {
+                        texto = texto.Substring(0, texto.Length - 1);
+
+                        Console.SetCursorPosition(x, y);
+                        Console.Write(new string(' ', maxLen));
+                        Console.SetCursorPosition(x, y);
+                        Console.Write(texto);
+                    }
+                }
+                else if (!char.IsControl(tecla.KeyChar) && texto.Length < maxLen)
+                {
+                    texto += tecla.KeyChar;
+                    Console.Write(tecla.KeyChar);
+                }
+            }
+            return texto;
+        }
+
+        public class ItemsBoleta
+        {
+            public string Codigo { get; set; }
+            public string Producto { get; set; }
+            public int Cantidad { get; set; }
+            public decimal Precio { get; set; }
+            public decimal Monto { get; set; }
+        }
         public class Boleta
         {
             public string DNICLIENTE { get; set; }
@@ -16,209 +64,372 @@ namespace BiblioVentas
             public string CLIENTE { get; set; }
             public string VENDEDOR { get; set; }
             public decimal TOTAL { get; set; }
+
+            public List<ItemsBoleta> Items { get; set; } = new List<ItemsBoleta>();
         }
 
-        static List<Boleta> listaBoleta = new List<Boleta>();
+        public static List<Boleta> listaBoleta = new List<Boleta>();
 
-        public static int MostrarBoleta()
+        public static void MostrarBoleta()
         {
-            string dniCliente = "";
-            string nroBoleta = "";
-            string nombreCliente = "";
+            string dniCliente;
+            string nroBoleta;
+            string nombreCliente;
+            int alineaIzquierda = 1;
 
-            while (true)
+            //**********IMPRIMO EL MENU ESTATICO**********
+            string[] arregloMenu = { "REGISTRA", "VENTAS", "REPORTES", "MODIFICAR", "AYUDA", "SALIR" };
+
+            Console.Clear();
+
+            ClaseInterfaz.Interfaz();
+
+            for (int i = 0; i < arregloMenu.Length; i++)
             {
-                Console.Clear();
-                Console.WriteLine("                    BOLETA DE VENTA\n");
+                Console.SetCursorPosition(alineaIzquierda, 3);
 
-                Console.Write(" DNI CLIENTE: ");
-                dniCliente = Console.ReadLine();
-
-                if (dniCliente.Length != 8 || !dniCliente.All(char.IsDigit))
+                if (i == 1)
                 {
-                    Console.WriteLine("\nEl DNI ingresado debe tener 8 digitos numericos.");
-                    Console.WriteLine("Presione cualquier tecla para continuar...");
-                    Console.ReadKey();
-                    continue;
+                    Console.BackgroundColor = ConsoleColor.Black;
+                    Console.ForegroundColor = ConsoleColor.White;
+                }
+                else
+                {
+                    Console.BackgroundColor = ConsoleColor.White;
+                    Console.ForegroundColor = ConsoleColor.Black;
                 }
 
+                Console.Write("                 ");
+                Console.SetCursorPosition(alineaIzquierda + 4, 3);
+                Console.Write(arregloMenu[i]);
+                Console.ResetColor();
 
-
-                RCliente.Cliente clienteEncontrado = RCliente.listaClientes.Find(c => c.DNI == dniCliente);
-
-                if (clienteEncontrado != null)
-                    break;
-
-                Console.WriteLine("\n DNI no registrado como cliente.");
-                Console.WriteLine(" Presione una tecla para intentar de nuevo...");
-                Console.ReadKey();
+                alineaIzquierda = alineaIzquierda + 18;
             }
 
-            Console.Write("\n NRO BOLETA: ");
-            nroBoleta = Console.ReadLine();
-
-            Console.Write("\n CLIENTE (nombre): ");
-            nombreCliente = Console.ReadLine();
-
-            List<(string Codigo, string Nombre, int Cant, decimal Precio, decimal Monto)> detalles =
-                new List<(string, string, int, decimal, decimal)>();
-
+            //**********IMPRIMO LAS ENTRADAS DE TEXTO**********
             while (true)
             {
-                Console.Clear();
-                Console.WriteLine("                    BOLETA DE VENTA\n");
-                Console.WriteLine($" DNI CLIENTE: {dniCliente}          NRO BOLETA: {nroBoleta}");
-                Console.WriteLine($" CLIENTE: {nombreCliente}\n");
+                Console.ForegroundColor = ConsoleColor.White;
+                Console.SetCursorPosition(45, 6);
+                Console.Write("BOLETA DE VENTA");
 
-                Console.WriteLine(" --------------------------------------------------------------");
-                Console.WriteLine(" CODIGO        PRODUCTO        CANT        PRECIO        MONTO");
-                Console.WriteLine(" --------------------------------------------------------------");
+                Console.SetCursorPosition(8, 8);
+                Console.Write("DNI CLIENTE    :");
 
-                foreach ((string Codigo, string Nombre, int Cant, decimal Precio, decimal Monto) d in detalles)
+                Console.SetCursorPosition(8, 10);
+                Console.Write("CLIENTE        :");
+
+                Console.SetCursorPosition(8, 12);
+                Console.Write("NRO BOLETA     :");
+
+                Console.SetCursorPosition(8, 24);
+                Console.Write("DNI VENDEDOR   :");
+
+                Console.SetCursorPosition(70, 24);
+                Console.Write("TOTAL          :");
+
+                //**********IMPRIMO EL ENCABEZADO DE LA TABLA DE LOS PRODUCTOS**********
+                string[] productos = { "CODIGO", "PRODUCTOS", "CANTIDAD", "PRECIO UNITARIO", "MONTO" };
+
+                int x = 8;
+                int y = 14;
+
+                for (int i = 0; i < productos.Length; i++)
                 {
-                    Console.WriteLine($" {d.Codigo,-12} {d.Nombre,-14} {d.Cant,-10} {d.Precio,-12:0.00} {d.Monto:0.00}");
+                    Console.SetCursorPosition(x, y);
+                    Console.Write(productos[i]);
+
+                    x += 20;
                 }
 
-                Console.WriteLine(" ");
-
-                Console.Write(" Codigo: ");
-                string codigo = Console.ReadLine();
-
-                if (string.IsNullOrWhiteSpace(codigo))
-                    break;
-
-                RProducto.Producto producto = RProducto.listaProductos
-                    .Find(p => p.Codigo == codigo);
-
-                if (producto == null)
-                {
-                    Console.WriteLine("\n Código no encontrado.");
-                    Console.WriteLine(" Presione una tecla para continuar...");
-                    Console.ReadKey();
-                    continue;
-                }
-
-                Console.WriteLine($" Producto: {producto.Nombre}");
-
-                int cant;
+                //**********PEDIMOS EL DNI DEL CLIENTE**********
                 while (true)
                 {
-                    Console.Write(" Cantidad: ");
-                    bool esNumero = int.TryParse(Console.ReadLine(), out cant);
 
-                    if (esNumero)
+                    Console.SetCursorPosition(26, 8); Console.Write(new string(' ', 12));
+                    Console.SetCursorPosition(26, 10); Console.Write(new string(' ', 30));
+
+                    dniCliente = LeerTextBox(26, 8, 8);
+
+                    var cli = RCliente.listaClientes.Find(c => c.DNI == dniCliente);
+
+                    if (cli != null)
                     {
-                        if (cant <= producto.Stock)
-                            break;
+                        nombreCliente = cli.Nombre;
 
-                        Console.WriteLine($" Stock insuficiente. Solo quedan {producto.Stock} unidades.");
+                        Console.SetCursorPosition(26, 10);
+                        Console.ForegroundColor = ConsoleColor.Green;
+                        Console.Write(nombreCliente);
+                        Console.ResetColor();
+                        break;
                     }
                     else
                     {
-                        Console.WriteLine(" Ingrese un número válido.");
+                        Console.SetCursorPosition(26, 10);
+                        Console.ForegroundColor = ConsoleColor.Red;
+                        Console.Write("Error: Cliente no registrado.");
+                        Console.ResetColor();
+
+                        Console.ReadKey(true);
+
+                        Console.SetCursorPosition(26, 10);
+                        Console.Write(new string(' ', 30));
                     }
                 }
 
-                decimal monto = cant * producto.Precio;
+                //**********PEDIMOS EL NUMERO DE BOLETA**********
+                nroBoleta = LeerTextBox(26, 12, 12);
 
-                producto.Stock -= cant;
+                //**********PEDIMOS EL INGRESO DE PRODUCTOS**********
+                Console.SetCursorPosition(40, 12);
+                Console.WriteLine("Presione cualquier tecla para ingresar los productos...");
+                Console.ReadKey(true);
+                Console.SetCursorPosition(40, 12);
+                Console.Write(new string(' ', 60));
 
-                detalles.Add((producto.Codigo, producto.Nombre, cant, producto.Precio, monto));
-            }
+                Console.SetCursorPosition(10, 13);
+                Console.Write(new string(' ', 55));
 
-            string dniVendedor = "";
+                string[,] tabla = new string[5, 5];
 
-            while (true)
-            {
-                Console.Clear();
-                Console.WriteLine("                    BOLETA DE VENTA\n");
-                Console.WriteLine($" DNI CLIENTE: {dniCliente}          NRO BOLETA: {nroBoleta}");
-                Console.WriteLine($" CLIENTE: {nombreCliente}\n");
+                bool salir = false;
 
-                Console.WriteLine(" --------------------------------------------------------------");
-                Console.WriteLine(" CODIGO        PRODUCTO        CANT        PRECIO        MONTO");
-                Console.WriteLine(" --------------------------------------------------------------");
-
-                foreach ((string Codigo, string Nombre, int Cant, decimal Precio, decimal Monto) d in detalles)
+                for (int fila = 0; fila < 5; fila++)
                 {
-                    Console.WriteLine($" {d.Codigo,-12} {d.Nombre,-14} {d.Cant,-10} {d.Precio,-12:0.00} {d.Monto:0.00}");
-                }
-                Console.WriteLine(" --------------------------------------------------------------");
-                Console.Write("\n DNI VENDEDOR: ");
-                dniVendedor = Console.ReadLine();
-
-                if (dniCliente.Length != 8 || !dniCliente.All(char.IsDigit))
-                {
-                    Console.WriteLine("\nEl DNI ingresado debe tener 8 digitos numericos.");
-                    Console.WriteLine("Presione cualquier tecla para continuar...");
-                    Console.ReadKey();
-                    continue;
-                }
-
-                RVendedor.Vendedores vend = RVendedor.listaVendedores
-                    .Find(v => v.Codigo == dniVendedor);
-
-                if (vend != null) break;
-
-                Console.WriteLine("\n DNI de vendedor no válido.");
-                Console.ReadKey();
-            }
-
-            decimal total = detalles.Sum(d => d.Monto);
-
-            int opcion = 0;
-
-            while (true)
-            {
-                Console.Clear();
-                Console.WriteLine("                    BOLETA DE VENTA\n");
-                Console.WriteLine($" DNI CLIENTE: {dniCliente}          NRO BOLETA: {nroBoleta}");
-                Console.WriteLine($" CLIENTE: {nombreCliente}\n");
-
-                Console.WriteLine(" --------------------------------------------------------------");
-                Console.WriteLine(" CODIGO        PRODUCTO        CANT        PRECIO        MONTO");
-                Console.WriteLine(" --------------------------------------------------------------");
-
-                foreach ((string Codigo, string Nombre, int Cant, decimal Precio, decimal Monto) d in detalles)
-                {
-                    Console.WriteLine($" {d.Codigo,-12} {d.Nombre,-14} {d.Cant,-10} {d.Precio,-12:0.00} {d.Monto:0.00}");
-                }
-
-                Console.WriteLine(" --------------------------------------------------------------");
-
-                Console.WriteLine($" DNI VENDEDOR: {dniVendedor}          TOTAL: {total}\n");
-
-                Console.WriteLine($"{(opcion == 0 ? ">" : " ")} [ GUARDAR ]    {(opcion == 1 ? ">" : " ")} [ CANCELAR ]");
-
-                ConsoleKey key = Console.ReadKey(true).Key;
-
-                if (key == ConsoleKey.LeftArrow) opcion = 0;
-                if (key == ConsoleKey.RightArrow) opcion = 1;
-
-                if (key == ConsoleKey.Enter)
-                {
-                    if (opcion == 0)
+                    while (true)
                     {
-                        Boleta nuevaBoleta = new Boleta
+                        Console.SetCursorPosition(10, 16 + fila);
+                        Console.Write(new string(' ', 10));
+                        Console.SetCursorPosition(8, 16 + fila);
+
+                        string codigo = LeerTextBox(8, 16 + fila, 10);
+
+                        if (codigo.ToUpper() == "FIN")
                         {
-                            DNICLIENTE = dniCliente,
-                            CLIENTE = nombreCliente,
-                            NROBOLETA = nroBoleta,
-                            VENDEDOR = dniVendedor,
-                            TOTAL = total
-                        };
+                            Console.SetCursorPosition(8, 16 + fila);
+                            Console.Write(new string(' ', 10));
+                            salir = true;
+                            break;
+                        }
+                        var prod = RProducto.listaProductos.Find(p => p.Codigo == codigo);
 
-                        listaBoleta.Add(nuevaBoleta);
+                        if (prod != null)
+                        {
+                            tabla[fila, 0] = prod.Codigo;
+                            tabla[fila, 1] = prod.Nombre;
+                            tabla[fila, 3] = prod.Precio.ToString("0.00");
 
-                        Console.WriteLine("\n BOLETA GUARDADA.");
-                        Console.ReadKey();
+                            Console.SetCursorPosition(28, 16 + fila);
+                            Console.Write(new string(' ', 20));
+                            Console.SetCursorPosition(28, 16 + fila);
+                            Console.Write(prod.Nombre);
+
+                            Console.SetCursorPosition(68, 16 + fila);
+                            Console.Write(new string(' ', 10));
+                            Console.SetCursorPosition(68, 16 + fila);
+                            Console.Write(prod.Precio.ToString("0.00"));
+                        }
+                        else
+                        {
+                            Console.SetCursorPosition(20, 16 + fila);
+                            Console.ForegroundColor = ConsoleColor.Red;
+                            Console.Write("Error: Código no registrado");
+                            Console.ResetColor();
+                            Console.ReadKey(true);
+
+                            Console.SetCursorPosition(20, 16 + fila);
+                            Console.Write(new string(' ', 40));
+
+                            continue;
+                        }
+
+                        while (true)
+                        {
+                            Console.SetCursorPosition(48, 16 + fila);
+                            Console.Write(new string(' ', 5));
+                            Console.SetCursorPosition(48, 16 + fila);
+
+                            string cantStr = LeerTextBox(48, 16 + fila, 5);
+
+                            if (!int.TryParse(cantStr, out int cantidad) || cantidad <= 0)
+                            {
+                                Console.SetCursorPosition(20, 18);
+                                Console.ForegroundColor = ConsoleColor.Red;
+                                Console.Write("Cantidad no válida.");
+                                Console.ResetColor();
+                                Console.ReadKey(true);
+                                Console.SetCursorPosition(20, 18);
+                                Console.Write(new string(' ', 40));
+                                continue;
+                            }
+
+                            string codProdTemp = tabla[fila, 0];
+                            var producto = RProducto.listaProductos.FirstOrDefault(p => p.Codigo == codProdTemp);
+
+                            if (cantidad > producto.Stock)
+                            {
+                                Console.SetCursorPosition(20, 18);
+                                Console.ForegroundColor = ConsoleColor.Red;
+                                Console.Write($"Error: Stock insuficiente (Disponible: {producto.Stock}).");
+                                Console.ResetColor();
+                                Console.ReadKey(true);
+                                Console.SetCursorPosition(20, 18);
+                                Console.Write(new string(' ', 50));
+                                continue;
+                            }
+
+                            tabla[fila, 2] = cantidad.ToString();
+
+                            decimal precio = decimal.Parse(tabla[fila, 3]);
+                            decimal monto = precio * cantidad;
+                            tabla[fila, 4] = monto.ToString("0.00");
+
+                            Console.SetCursorPosition(88, 16 + fila);
+                            Console.Write(new string(' ', 10));
+                            Console.SetCursorPosition(88, 16 + fila);
+                            Console.Write(monto.ToString("0.00"));
+                            break;
+                        }
+                        break;
+                    }
+                    if (salir)
+                        break;
+                }
+
+                string dniVendedor;
+                string nombreVendedor;
+
+                while (true)
+                {
+                    Console.SetCursorPosition(26, 24);
+                    Console.Write(new string(' ', 12));
+
+                    dniVendedor = LeerTextBox(26, 24, 8);
+
+                    var vend = RVendedor.listaVendedores.Find(v => v.Codigo == dniVendedor);
+
+                    if (vend == null)
+                    {
+                        Console.SetCursorPosition(36, 24);
+                        Console.ForegroundColor = ConsoleColor.Red;
+                        Console.Write("Error: Vendedor no registrado.");
+                        Console.ResetColor();
+                        Console.ReadKey(true);
+
+                        Console.SetCursorPosition(26, 24);
+                        Console.Write(new string(' ', 40));
                     }
                     else
                     {
-                        Console.WriteLine("\n OPERACIÓN CANCELADA.");
-                        Console.ReadKey();
+                        nombreVendedor = vend.Nombre + " " + vend.Apellidos;
+
+                        Console.SetCursorPosition(36, 24);
+                        Console.ForegroundColor = ConsoleColor.Green;
+                        Console.Write("- " + nombreVendedor);
+                        Console.ResetColor();
+                        break;
                     }
                 }
+
+                decimal total = 0;
+
+                for (int i = 0; i < 5; i++)
+                {
+                    if (!string.IsNullOrEmpty(tabla[i, 4]))
+                        total += decimal.Parse(tabla[i, 4]);
+                }
+
+                Console.SetCursorPosition(82, 24);
+                Console.ForegroundColor = ConsoleColor.Green;
+                Console.Write(total.ToString("0.00"));
+                Console.ResetColor();
+
+                string[] GC = { "GUARDAR", "CANCELAR" };
+                int opcionGC = 0;
+
+                while (true)
+                {
+                    Console.SetCursorPosition(30, 26);
+                    Console.Write(new string(' ', 40));
+
+                    for (int i = 0; i < GC.Length; i++)
+                    {
+                        if (i == opcionGC)
+                        {
+                            Console.BackgroundColor = ConsoleColor.White;
+                            Console.ForegroundColor = ConsoleColor.Black;
+                        }
+                        else
+                        {
+                            Console.BackgroundColor = ConsoleColor.Black;
+                            Console.ForegroundColor = ConsoleColor.White;
+                        }
+
+                        Console.SetCursorPosition(30 + (i * 12), 26);
+                        Console.Write($" {GC[i]} ");
+
+                        Console.ResetColor();
+                    }
+
+                    ConsoleKey key = Console.ReadKey(true).Key;
+
+                    if (key == ConsoleKey.RightArrow)
+                    {
+                        opcionGC++;
+                        if (opcionGC >= GC.Length) opcionGC = 0;
+                    }
+
+                    if (key == ConsoleKey.LeftArrow)
+                    {
+                        opcionGC--;
+                        if (opcionGC < 0) opcionGC = GC.Length - 1;
+                    }
+
+                    if (key == ConsoleKey.Enter)
+                        break;
+                }
+
+                Console.ResetColor();
+                Console.Clear();
+
+                if (opcionGC == 0)
+                {
+                    Boleta nuevaBoleta = new Boleta();
+                    nuevaBoleta.DNICLIENTE = dniCliente;
+                    nuevaBoleta.CLIENTE = nombreCliente;
+                    nuevaBoleta.NROBOLETA = nroBoleta;
+                    nuevaBoleta.VENDEDOR = nombreVendedor;
+                    nuevaBoleta.TOTAL = total;
+
+                    for (int i = 0; i < 5; i++)
+                    {
+                        if (tabla[i, 0] != null)
+                        {
+                            nuevaBoleta.Items.Add(new ItemsBoleta
+                            {
+                                Codigo = tabla[i, 0],
+                                Producto = tabla[i, 1],
+                                Cantidad = int.Parse(tabla[i, 2]),
+                                Precio = decimal.Parse(tabla[i, 3]),
+                                Monto = decimal.Parse(tabla[i, 4])
+                            });
+                        }
+                    }
+                    listaBoleta.Add(nuevaBoleta);
+                    Console.ForegroundColor = ConsoleColor.Green;
+                    Console.WriteLine("Su boleta ha sido guardada, presione cualquier boton para salir.");
+                    Console.ResetColor();
+                    Console.ReadKey();
+                }
+                else
+                {
+                    Console.ForegroundColor = ConsoleColor.Red;
+                    Console.WriteLine("Su boleta no ha sido guardada, presione cualquier boton para salir.");
+                    Console.ResetColor();
+                    Console.ReadKey();
+                }
+                return;
             }
         }
     }

@@ -49,23 +49,44 @@ namespace BiblioRegistrar
                 if (dni == "")
                 {
                     MostrarError("El DNI no puede estar vacío.", linea);
+
+                    Console.SetCursorPosition(25, linea);
+                    Console.Write(new string(' ', 50));
+                    Console.SetCursorPosition(25, linea);
+
                     continue;
                 }
                 if (!int.TryParse(dni, out _))
                 {
                     MostrarError("El DNI debe ser numérico.", linea);
+
+                    Console.SetCursorPosition(25, linea);
+                    Console.Write(new string(' ', 50));
+                    Console.SetCursorPosition(25, linea);
+
                     continue;
                 }
                 if (dni.Length != 8)
                 {
                     MostrarError("Debe tener 8 dígitos.", linea);
+
+                    Console.SetCursorPosition(25, linea);
+                    Console.Write(new string(' ', 50));
+                    Console.SetCursorPosition(25, linea);
+
                     continue;
                 }
                 if (listaClientes.Any(c => c.DNI == dni))
                 {
                     MostrarError("El DNI ya existe.", linea);
+
+                    Console.SetCursorPosition(25, linea);
+                    Console.Write(new string(' ', 50));
+                    Console.SetCursorPosition(25, linea);
+
                     continue;
                 }
+
                 LimpiarError(linea);
                 break;
             }
@@ -81,8 +102,14 @@ namespace BiblioRegistrar
                 if (nombre == "")
                 {
                     MostrarError("El nombre no puede estar vacío.", linea);
+
+                    Console.SetCursorPosition(25, linea);
+                    Console.Write(new string(' ', 50));
+                    Console.SetCursorPosition(25, linea);
+
                     continue;
                 }
+
                 LimpiarError(linea);
                 break;
             }
@@ -98,8 +125,14 @@ namespace BiblioRegistrar
                 if (apellido == "")
                 {
                     MostrarError("El apellido es obligatorio.", linea);
+
+                    Console.SetCursorPosition(25, linea);
+                    Console.Write(new string(' ', 50));
+                    Console.SetCursorPosition(25, linea);
+
                     continue;
                 }
+
                 LimpiarError(linea);
                 break;
             }
@@ -115,18 +148,34 @@ namespace BiblioRegistrar
                 if (cel == "")
                 {
                     MostrarError("El teléfono no puede estar vacío.", linea);
+
+                    Console.SetCursorPosition(28, linea);
+                    Console.Write(new string(' ', 50));
+                    Console.SetCursorPosition(28, linea);
+
                     continue;
                 }
                 if (!int.TryParse(cel, out telefono))
                 {
                     MostrarError("Debe ingresar solo números.", linea);
+
+                    Console.SetCursorPosition(28, linea);
+                    Console.Write(new string(' ', 50));
+                    Console.SetCursorPosition(28, linea);
+
                     continue;
                 }
                 if (cel.Length != 9)
                 {
                     MostrarError("Debe tener 9 dígitos.", linea);
+
+                    Console.SetCursorPosition(28, linea);
+                    Console.Write(new string(' ', 50));
+                    Console.SetCursorPosition(28, linea);
+
                     continue;
                 }
+
                 LimpiarError(linea);
                 break;
             }
@@ -142,8 +191,14 @@ namespace BiblioRegistrar
                 if (email == "")
                 {
                     MostrarError("El email no puede estar vacío.", linea);
+
+                    Console.SetCursorPosition(25, linea);
+                    Console.Write(new string(' ', 50));
+                    Console.SetCursorPosition(25, linea);
+
                     continue;
                 }
+
                 LimpiarError(linea);
                 break;
             }
@@ -159,8 +214,14 @@ namespace BiblioRegistrar
                 if (direccion == "")
                 {
                     MostrarError("La dirección no puede estar vacía.", linea);
+
+                    Console.SetCursorPosition(25, linea);
+                    Console.Write(new string(' ', 50));
+                    Console.SetCursorPosition(25, linea);
+
                     continue;
                 }
+
                 LimpiarError(linea);
                 break;
             }
@@ -197,7 +258,6 @@ namespace BiblioRegistrar
         {
             int lineaError = lineaInput + 1;
             Console.SetCursorPosition(4, lineaError);
-
             Console.Write(new string(' ', 80));
 
             Console.SetCursorPosition(4, lineaError);
