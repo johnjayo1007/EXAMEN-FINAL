@@ -1,7 +1,6 @@
-﻿using BiblioRegistrar;
+﻿using System;
+using BiblioRegistrar;
 using BiblioVentas;
-using Microsoft.Win32;
-using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -9,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace BiblioReportes
 {
-    public class Reportes
+    public class Reporte
     {
         public static void MostrarReporte(int tipo)
         {
@@ -30,7 +29,7 @@ namespace BiblioReportes
                 case 1: titulo = "REPORTE DE PRODUCTOS"; break;
                 case 2: titulo = "REPORTE DE VENDEDORES"; break;
                 case 3: titulo = "REPORTE DE PROVEEDORES"; break;
-                case 4: titulo = "REPORTE DE BOLETAS"; break;   // ← AGREGADO
+                case 4: titulo = "REPORTE DE BOLETAS"; break;
                 default: titulo = ""; break;
             }
 
@@ -41,7 +40,7 @@ namespace BiblioReportes
 
             switch (tipo)
             {
-                case 0:
+                case 0: 
                     Console.SetCursorPosition(5, 8);
                     Console.WriteLine("DNI       | NOMBRE         | APELLIDO       | TELÉFONO");
                     Console.SetCursorPosition(5, 9);
@@ -54,7 +53,7 @@ namespace BiblioReportes
                     }
                     break;
 
-                case 1:
+                case 1: 
                     Console.SetCursorPosition(5, 8);
                     Console.WriteLine("CÓDIGO    | NOMBRE         | PRECIO");
                     Console.SetCursorPosition(5, 9);
@@ -63,11 +62,11 @@ namespace BiblioReportes
                     foreach (var p in RProducto.listaProductos)
                     {
                         Console.SetCursorPosition(5, fila++);
-                        Console.WriteLine($"{p.Codigo.PadRight(10)}| {p.Nombre.PadRight(14)}| {p.Precio}");
+                        Console.WriteLine($"{p.Codigo.PadRight(10)}| {p.Nombre.PadRight(14)}| {p.Precio.ToString("0.00")}");
                     }
                     break;
 
-                case 2:
+                case 2: 
                     Console.SetCursorPosition(5, 8);
                     Console.WriteLine("CÓDIGO    | NOMBRE         | APELLIDO       | SUELDO");
                     Console.SetCursorPosition(5, 9);
@@ -80,13 +79,13 @@ namespace BiblioReportes
                     }
                     break;
 
-                case 3:
+                case 3: 
                     Console.SetCursorPosition(5, 8);
                     Console.WriteLine("CODIGO    | EMPRESA        | RUC          | REPRESENTANTE   | TELÉFONO");
                     Console.SetCursorPosition(5, 9);
                     Console.WriteLine("--------------------------------------------------------------------------");
 
-                    foreach (RProveedores.Proveedor pr in RProveedores.listaProveedores)
+                    foreach (var pr in RProveedores.listaProveedores)
                     {
                         Console.SetCursorPosition(5, fila++);
                         Console.WriteLine(
@@ -101,27 +100,41 @@ namespace BiblioReportes
 
                 case 4:
                     Console.SetCursorPosition(5, 8);
-                    Console.WriteLine("N° BOLETA | CLIENTE        | VENDEDOR       | TOTAL");
+                    Console.WriteLine("N° BOLETA | CLIENTE          | VENDEDOR         | TOTAL");
                     Console.SetCursorPosition(5, 9);
                     Console.WriteLine("--------------------------------------------------------------");
 
                     foreach (var b in VBoletas.listaBoleta)
                     {
+                        // Cabecera de la boleta
                         Console.SetCursorPosition(5, fila++);
                         Console.WriteLine(
                             $"{b.NROBOLETA.PadRight(10)}| " +
-                            $"{b.CLIENTE.PadRight(14)}| " +
-                            $"{b.VENDEDOR.PadRight(14)}| " +
-                            $"{b.TOTAL}"
+                            $"{b.CLIENTE.PadRight(16)}| " +
+                            $"{b.VENDEDOR.PadRight(16)}| " +
+                            $"{b.TOTAL.ToString("0.00").PadLeft(8)}"
                         );
+
+                        Console.SetCursorPosition(7, fila++);
+                        Console.WriteLine($"COD   | PRODUCTO        | CANT | MONTO");
+                        Console.SetCursorPosition(7, fila++);
+                        Console.WriteLine("----------------------------------------");
 
                         foreach (var item in b.Items)
                         {
                             Console.SetCursorPosition(7, fila++);
-                            Console.WriteLine($"→ {item.Producto}  x{item.Cantidad}  = {item.Monto}");
+                            Console.WriteLine(
+                                $"{item.Codigo.PadRight(5)}| " +
+                                $"{item.Producto.PadRight(16)}| " +
+                                $"{item.Cantidad.ToString().PadLeft(3)} | " +
+                                $"{item.Monto.ToString("0.00").PadLeft(8)}"
+                            );
                         }
 
-                        fila++; 
+                        fila++;
+                        Console.SetCursorPosition(5, fila++);
+                        Console.WriteLine(new string('-', 60));
+                        fila++;
                     }
                     break;
             }
@@ -141,4 +154,3 @@ namespace BiblioReportes
         }
     }
 }
-

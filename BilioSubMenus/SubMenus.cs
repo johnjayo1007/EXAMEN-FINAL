@@ -87,7 +87,8 @@ namespace BilioSubMenus
             "REPORTE DE CLIENTES",
             "REPORTE DE PRODUCTOS",
             "REPORTE DE VENDEDORES",
-            "REPORTE DE PROVEEDORES"
+            "REPORTE DE PROVEEDORES",
+            "REPORTE DE BOLETA"
             };
 
             int opcion = 0;
@@ -131,7 +132,7 @@ namespace BilioSubMenus
                 }
                 else if (tecla == ConsoleKey.Enter)
                 {
-                    Reportes.MostrarReporte(opcion);
+                    Reporte.MostrarReporte(opcion);
                 }
                 else if (tecla == ConsoleKey.Escape)
                 {

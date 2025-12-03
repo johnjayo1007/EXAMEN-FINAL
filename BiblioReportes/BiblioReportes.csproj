@@ -4,7 +4,7 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{F46E7441-73CD-4116-B525-A9747168CB7B}</ProjectGuid>
+    <ProjectGuid>{E469EA88-2382-4D2B-AED3-768D123524A8}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>BiblioReportes</RootNamespace>
@@ -32,13 +32,10 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="BiblioRegistrar">
-      <HintPath>..\BilioSubMenus\bin\Debug\BiblioRegistrar.dll</HintPath>
+      <HintPath>..\BiblioVentas\bin\Debug\BiblioRegistrar.dll</HintPath>
     </Reference>
     <Reference Include="BiblioVentas">
-      <HintPath>..\BilioSubMenus\bin\Debug\BiblioVentas.dll</HintPath>
-    </Reference>
-    <Reference Include="BilioSubMenus">
-      <HintPath>..\BilioSubMenus\bin\Debug\BilioSubMenus.dll</HintPath>
+      <HintPath>..\BiblioVentas\bin\Debug\BiblioVentas.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
@@ -50,7 +47,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Reportes.cs" />
+    <Compile Include="Reporte.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
